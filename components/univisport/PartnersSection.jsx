@@ -22,7 +22,9 @@ const FALLBACK_PARTNERS = [
   { _id: '17', name: 'Partner 15', logo: '/khach-hang/15.jpg' },
 ];
 
-const PartnersSection = ({ initialLogos }) => {
+const VALID_CATEGORIES = ['doanh-nghiep', 'fitness-gym', 'yoga-studio'];
+
+const PartnersSection = ({ initialLogos, category }) => {
   const [partners, setPartners] = useState(
     initialLogos && initialLogos.length > 0 ? initialLogos : FALLBACK_PARTNERS
   );
@@ -30,21 +32,29 @@ const PartnersSection = ({ initialLogos }) => {
   useEffect(() => {
     // If no SSR data provided, fetch on client side
     if (!initialLogos || initialLogos.length === 0) {
-      fetch('/api/partner-logos?visible=true')
+      const url = category && VALID_CATEGORIES.includes(category)
+        ? `/api/partner-logos?visible=true&category=${category}`
+        : '/api/partner-logos?visible=true';
+      fetch(url)
         .then((r) => r.json())
         .then(({ logos }) => {
           if (logos && logos.length > 0) setPartners(logos);
         })
-        .catch(() => {/* keep fallback */});
+        .catch(() => {/* keep fallback */ });
     }
-  }, [initialLogos]);
+  }, [initialLogos, category]);
+
+  // Filter displayed logos: if category given show only that group (max 24), else show all (max 24)
+  const displayedPartners = category && VALID_CATEGORIES.includes(category)
+    ? partners.filter(p => (p.category || 'doanh-nghiep') === category).slice(0, 24)
+    : partners.slice(0, 24);
 
   return (
-    <section className="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <section className="container mx-auto py-6 px-4 ">
       {/* Partners / Logos Grid */}
       <div className="container mx-auto">
-        <div className="grid grid-cols-6 md:grid-cols-6 lg:grid-cols-6 gap-4 md:gap-4 items-center justify-items-center">
-          {partners.map((partner) => {
+        <div className="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-8 gap-4 md:gap-6 items-center justify-items-center">
+          {displayedPartners.map((partner) => {
             const img = (
               <Image
                 src={partner.logo}

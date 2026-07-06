@@ -1,15 +1,18 @@
 import { FC, useCallback, useEffect, useState } from "react";
-import { FiPlus, FiTrash2, FiX } from "react-icons/fi";
+import { FiPlus, FiTrash2, FiX, FiMenu } from "react-icons/fi";
+import { ReactSortable } from "react-sortablejs";
 import ModalContainer, { ModalProps } from "../../common/ModalContainer";
 import type { GalleryImage } from "../ImageGallery";
 
 interface Props extends ModalProps {
   onSelect(images: GalleryImage[]): void;
+  initialImages?: GalleryImage[];
 }
 
 type RatioPreset = "auto" | "1:1" | "4:3" | "3:4" | "16:9" | "custom";
 
 interface GalleryFormImage extends GalleryImage {
+  id: string;
   ratio: RatioPreset;
   naturalWidth?: number;
   naturalHeight?: number;
@@ -26,6 +29,7 @@ const RATIO_DIMENSIONS: Record<
 };
 
 const createEmptyImage = (): GalleryFormImage => ({
+  id: Math.random().toString(36).substring(2, 9),
   src: "",
   altText: "",
   width: 0,
@@ -53,17 +57,34 @@ const MultiImageGalleryModal: FC<Props> = ({
   visible,
   onSelect,
   onClose,
+  initialImages,
 }) => {
-  const [galleryImages, setGalleryImages] = useState<GalleryFormImage[]>([
-    createEmptyImage(),
-    createEmptyImage(),
-  ]);
+  const isEditMode = Boolean(initialImages && initialImages.length > 0);
+  const [galleryImages, setGalleryImages] = useState<GalleryFormImage[]>(
+    isEditMode
+      ? initialImages!.map((img) => ({
+          ...img,
+          id: Math.random().toString(36).substring(2, 9),
+          ratio: (img.ratioMode as RatioPreset) || "auto",
+        }))
+      : [createEmptyImage(), createEmptyImage()]
+  );
   const [errorMessage, setErrorMessage] = useState("");
 
   const resetForm = useCallback(() => {
-    setGalleryImages([createEmptyImage(), createEmptyImage()]);
+    if (initialImages && initialImages.length > 0) {
+      setGalleryImages(
+        initialImages.map((img) => ({
+          ...img,
+          id: Math.random().toString(36).substring(2, 9),
+          ratio: (img.ratioMode as RatioPreset) || "auto",
+        }))
+      );
+    } else {
+      setGalleryImages([createEmptyImage(), createEmptyImage()]);
+    }
     setErrorMessage("");
-  }, []);
+  }, [initialImages]);
 
   const handleClose = useCallback(() => {
     resetForm();
@@ -71,8 +92,8 @@ const MultiImageGalleryModal: FC<Props> = ({
   }, [onClose, resetForm]);
 
   useEffect(() => {
-    if (!visible) resetForm();
-  }, [resetForm, visible]);
+    if (visible) resetForm();
+  }, [visible, resetForm]);
 
   const updateImage = (
     index: number,
@@ -192,10 +213,12 @@ const MultiImageGalleryModal: FC<Props> = ({
         <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
           <div>
             <h2 className="text-xl font-semibold text-gray-900">
-              Thêm Gallery từ Flickr
+              {isEditMode ? "Chỉnh sửa Gallery" : "Thêm Gallery từ Flickr"}
             </h2>
             <p className="mt-1 text-sm text-gray-500">
-              Dùng link ảnh trực tiếp dạng https://live.staticflickr.com/...
+              {isEditMode
+                ? `Đang chỉnh sửa ${galleryImages.length} ảnh – thêm, xóa hoặc sửa thông tin từng ảnh.`
+                : "Dùng link ảnh trực tiếp dạng https://live.staticflickr.com/..."}
             </p>
           </div>
           <button
@@ -209,10 +232,16 @@ const MultiImageGalleryModal: FC<Props> = ({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto bg-gray-50 p-6 custom-scrollbar">
-          <div className="space-y-4">
+          <ReactSortable
+            list={galleryImages}
+            setList={setGalleryImages}
+            handle=".gallery-drag-handle"
+            animation={150}
+            className="space-y-4"
+          >
             {galleryImages.map((image, index) => (
               <div
-                key={index}
+                key={image.id}
                 className="grid gap-4 rounded-xl border border-gray-200 bg-white p-4 md:grid-cols-[140px_1fr]"
               >
                 <div
@@ -241,9 +270,18 @@ const MultiImageGalleryModal: FC<Props> = ({
 
                 <div className="min-w-0 space-y-3">
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="font-semibold text-gray-900">
-                      Ảnh {index + 1}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        className="gallery-drag-handle cursor-grab text-gray-400 hover:text-gray-600 active:cursor-grabbing p-1"
+                        title="Kéo thả để sắp xếp"
+                      >
+                        <FiMenu className="h-4 w-4" />
+                      </button>
+                      <h3 className="font-semibold text-gray-900">
+                        Ảnh {index + 1}
+                      </h3>
+                    </div>
                     <button
                       type="button"
                       onClick={() => removeImage(index)}
@@ -355,7 +393,7 @@ const MultiImageGalleryModal: FC<Props> = ({
                 </div>
               </div>
             ))}
-          </div>
+          </ReactSortable>
 
           <button
             type="button"
@@ -386,7 +424,7 @@ const MultiImageGalleryModal: FC<Props> = ({
               onClick={handleInsert}
               className="rounded-lg bg-[#105d97] px-5 py-2.5 font-medium text-white hover:bg-[#0e4d7a]"
             >
-              Chèn Gallery
+              {isEditMode ? "Cập nhật Gallery" : "Chèn Gallery"}
             </button>
           </div>
         </div>

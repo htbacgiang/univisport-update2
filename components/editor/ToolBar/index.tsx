@@ -146,9 +146,9 @@ const ToolBar: FC<Props> = ({
     editor.chain().focus().setAdBanner(options).run();
   };
 
-  const handleInsertComponent = (name: string) => {
+  const handleInsertComponent = (name: string, props?: Record<string, string>) => {
     if (!editor) return;
-    editor.chain().focus().setEmbedComponent({ name }).run();
+    editor.chain().focus().setEmbedComponent({ name, props: props ? JSON.stringify(props) : "{}" }).run();
   };
 
   const Head = () => {

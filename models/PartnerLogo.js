@@ -7,6 +7,13 @@ const partnerLogoSchema = new mongoose.Schema(
     link: { type: String, default: "", trim: true },
     order: { type: Number, default: 0 },
     isVisible: { type: Boolean, default: true },
+    showOnHome: { type: Boolean, default: true },
+    homeOrder: { type: Number, default: 0 },
+    category: {
+      type: String,
+      enum: ["doanh-nghiep", "fitness-gym", "yoga-studio"],
+      default: "doanh-nghiep",
+    },
   },
   { timestamps: true }
 );

@@ -104,7 +104,25 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET,
 };
 
-export default NextAuth(authOptions);
+const nextAuthHandler = NextAuth(authOptions);
+
+export default async function authHandler(req, res) {
+  if (!req.query) req.query = {};
+  if (!req.query.nextauth) {
+    try {
+      const url = new URL(req.url, "http://localhost");
+      const parts = url.pathname
+        .replace(/^\/api\/auth\/?/, "")
+        .split("/")
+        .filter(Boolean);
+      req.query.nextauth = parts;
+    } catch (e) {
+      console.error("Failed to parse NextAuth path from URL:", e);
+    }
+  }
+  return nextAuthHandler(req, res);
+}
+
 
 const signInUser = async ({ password, user }) => {
   if (!user.password) {

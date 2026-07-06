@@ -47,7 +47,7 @@ export const EMBEDDABLE_COMPONENTS = [
 export type EmbeddableComponentName = typeof EMBEDDABLE_COMPONENTS[number]["name"];
 
 interface Props {
-  onSubmit(name: EmbeddableComponentName): void;
+  onSubmit(name: EmbeddableComponentName, props?: Record<string, string>): void;
   onToggle?(isOpen: boolean): void;
 }
 
@@ -77,14 +77,25 @@ const ComponentIcon: FC = () => (
   </svg>
 );
 
+const PARTNERS_CATEGORY_OPTIONS = [
+  { value: "", label: "🌐 Tất cả (trang chủ)", desc: "Hiển thị logo của cả 3 nhóm" },
+  { value: "doanh-nghiep", label: "🏢 Doanh nghiệp", desc: "Chỉ hiện logo khách hàng doanh nghiệp" },
+  { value: "fitness-gym", label: "🏋️ Fitness / Gym", desc: "Chỉ hiện logo phòng tập Gym" },
+  { value: "yoga-studio", label: "🌸 Studio Yoga", desc: "Chỉ hiện logo studio Yoga" },
+];
+
 const InsertComponent: FC<Props> = ({ onSubmit, onToggle }): JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [search, setSearch] = useState("");
+  const [pickingCategory, setPickingCategory] = useState(false);
+  const [pendingName, setPendingName] = useState<EmbeddableComponentName | null>(null);
 
   const hideForm = useCallback(() => {
     setVisible(false);
     setSearch("");
+    setPickingCategory(false);
+    setPendingName(null);
     onToggle?.(false);
   }, [onToggle]);
 
@@ -96,7 +107,19 @@ const InsertComponent: FC<Props> = ({ onSubmit, onToggle }): JSX.Element => {
   };
 
   const handleSelect = (name: EmbeddableComponentName) => {
+    if (name === "PartnersSection") {
+      setPendingName(name);
+      setPickingCategory(true);
+      return;
+    }
     onSubmit(name);
+    hideForm();
+  };
+
+  const handleCategoryPick = (category: string) => {
+    if (!pendingName) return;
+    const props: Record<string, string> = category ? { category } : {};
+    onSubmit(pendingName, props);
     hideForm();
   };
 
@@ -145,68 +168,65 @@ const InsertComponent: FC<Props> = ({ onSubmit, onToggle }): JSX.Element => {
             </div>
           </div>
 
-          {/* Search */}
-          <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
-            <input
-              autoFocus
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Tìm component..."
-              className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#105d97]/30 focus:border-[#105d97] outline-none bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100"
-            />
-          </div>
-
-          {/* Component list */}
-          <div className="overflow-y-auto" style={{ maxHeight: "360px" }}>
-            {Object.keys(filteredGrouped).length === 0 ? (
-              <div className="px-4 py-8 text-center text-sm text-gray-400">
-                Không tìm thấy component
-              </div>
-            ) : (
-              Object.entries(filteredGrouped).map(([category, comps]) => (
-                <div key={category}>
-                  {/* Category label */}
-                  <div className="px-4 py-2 bg-gray-50 dark:bg-gray-750 border-b border-gray-100 dark:border-gray-700">
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                      {category}
-                    </span>
-                  </div>
-
-                  {/* Components trong category */}
-                  {comps.map((comp) => (
-                    <button
-                      key={comp.name}
-                      type="button"
-                      onClick={() => handleSelect(comp.name as EmbeddableComponentName)}
-                      className="w-full flex items-start gap-3 px-4 py-3 hover:bg-[#105d97]/5 dark:hover:bg-[#105d97]/10 transition-colors text-left border-b border-gray-50 dark:border-gray-700/50 last:border-0"
-                    >
-                      <span className="text-xl flex-shrink-0 mt-0.5">{comp.icon}</span>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm text-gray-800 dark:text-gray-100">
-                          {comp.label}
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
-                          {comp.description}
-                        </div>
-                      </div>
-                      <span className="text-[#105d97] opacity-0 group-hover:opacity-100 flex-shrink-0 mt-1">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </span>
-                    </button>
-                  ))}
+          {pickingCategory ? (
+            <>
+              <div className="flex items-center gap-2 px-4 pt-4 pb-3 border-b border-gray-100 dark:border-gray-700">
+                <button onClick={() => setPickingCategory(false)} className="text-[#105d97] hover:text-[#0d4a7a] text-xs flex items-center gap-1">← Quay lại</button>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-sm">Chọn nhóm đối tác</h3>
+                  <p className="text-xs text-gray-400 mt-0.5">Tối đa 7 logo mỗi nhóm</p>
                 </div>
-              ))
-            )}
-          </div>
-
-          {/* Footer */}
+              </div>
+              <div className="overflow-y-auto" style={{ maxHeight: "280px" }}>
+                {PARTNERS_CATEGORY_OPTIONS.map((opt) => (
+                  <button key={opt.value} type="button" onClick={() => handleCategoryPick(opt.value)}
+                    className="w-full flex items-start gap-3 px-4 py-3 hover:bg-[#105d97]/5 transition-colors text-left border-b border-gray-50 dark:border-gray-700/50 last:border-0">
+                    <span className="text-xl flex-shrink-0 mt-0.5">{opt.label.split(" ")[0]}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-sm text-gray-800 dark:text-gray-100">{opt.label.split(" ").slice(1).join(" ")}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.desc}</div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+                <input autoFocus type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Tìm component..."
+                  className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#105d97]/30 focus:border-[#105d97] outline-none bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100" />
+              </div>
+              <div className="overflow-y-auto" style={{ maxHeight: "360px" }}>
+                {Object.keys(filteredGrouped).length === 0 ? (
+                  <div className="px-4 py-8 text-center text-sm text-gray-400">Không tìm thấy component</div>
+                ) : (
+                  Object.entries(filteredGrouped).map(([grp, comps]) => (
+                    <div key={grp}>
+                      <div className="px-4 py-2 bg-gray-50 dark:bg-gray-750 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{grp}</span>
+                      </div>
+                      {comps.map((comp) => (
+                        <button key={comp.name} type="button" onClick={() => handleSelect(comp.name as EmbeddableComponentName)}
+                          className="w-full flex items-start gap-3 px-4 py-3 hover:bg-[#105d97]/5 dark:hover:bg-[#105d97]/10 transition-colors text-left border-b border-gray-50 dark:border-gray-700/50 last:border-0">
+                          <span className="text-xl flex-shrink-0 mt-0.5">{comp.icon}</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium text-sm text-gray-800 dark:text-gray-100">{comp.label}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">{comp.description}</div>
+                          </div>
+                          <span className="text-[#105d97] flex-shrink-0 mt-1">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  ))
+                )}
+              </div>
+            </>
+          )}
           <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 rounded-b-xl">
-            <p className="text-xs text-gray-400 dark:text-gray-500 text-center">
-              Component sẽ được render đầy đủ khi xem bài viết
-            </p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 text-center">Component sẽ được render đầy đủ khi xem bài viết</p>
           </div>
         </div>
       )}

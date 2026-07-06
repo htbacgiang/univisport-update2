@@ -1,4 +1,5 @@
 import { Node, mergeAttributes } from "@tiptap/core";
+import { ReactNodeViewRenderer } from "@tiptap/react";
 
 export interface GalleryImage {
   src: string;
@@ -10,6 +11,7 @@ export interface GalleryImage {
 
 export interface ImageGalleryOptions {
   HTMLAttributes: Record<string, any>;
+  onEditRequest?: (images: GalleryImage[], getPos: () => number) => void;
 }
 
 declare module "@tiptap/core" {
@@ -61,6 +63,7 @@ export const ImageGallery = Node.create<ImageGalleryOptions>({
       HTMLAttributes: {
         class: "article-image-gallery",
       },
+      onEditRequest: undefined as ((images: GalleryImage[], getPos: () => number) => void) | undefined,
     };
   },
 
@@ -174,5 +177,15 @@ export const ImageGallery = Node.create<ImageGalleryOptions>({
             },
           }),
     };
+  },
+
+  addNodeView() {
+    const { onEditRequest } = this.options;
+    // Lazy import to avoid circular deps & keep .ts extension valid
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const ImageGalleryView = require("./ImageGalleryView").default;
+    return ReactNodeViewRenderer((props: any) =>
+      ImageGalleryView({ ...props, onEditRequest })
+    );
   },
 });

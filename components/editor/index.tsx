@@ -62,6 +62,17 @@ const Editor: FC<Props> = ({
   const [selectionRange, setSelectionRange] = useState<Range>();
   const [showGallery, setShowGallery] = useState(false);
   const [showImageGallery, setShowImageGallery] = useState(false);
+  const [editingGallery, setEditingGallery] = useState<{
+    images: GalleryImage[];
+    getPos: () => number;
+  } | null>(null);
+  // Ref to avoid hoisting issue with useEditor
+  const editGalleryCallbackRef = useCallback(
+    (images: GalleryImage[], getPos: () => number) => {
+      setEditingGallery({ images, getPos });
+    },
+    []
+  );
   const [uploading, setUploading] = useState(false);
   const [savingDraft, setSavingDraft] = useState(false);
   const [publishing, setPublishing] = useState(false);
@@ -191,7 +202,9 @@ const Editor: FC<Props> = ({
       FacebookReel,
       AdBanner,
       EmbedComponent,
-      ImageGallery,
+      ImageGallery.configure({
+        onEditRequest: editGalleryCallbackRef,
+      }),
     ],
 
     editorProps: {
@@ -227,6 +240,25 @@ const Editor: FC<Props> = ({
         title: "Thư viện hình ảnh",
       })
       .run();
+  };
+
+  const handleEditGalleryRequest = editGalleryCallbackRef;
+
+  const handleUpdateGallery = (updatedImages: GalleryImage[]) => {
+    if (!editor || !editingGallery) return;
+    const pos = editingGallery.getPos();
+    editor
+      .chain()
+      .focus()
+      .command(({ tr }) => {
+        tr.setNodeMarkup(pos, undefined, {
+          images: updatedImages,
+          title: "Thư viện hình ảnh",
+        });
+        return true;
+      })
+      .run();
+    setEditingGallery(null);
   };
 
   const handleSubmit = () => {
@@ -708,6 +740,13 @@ const Editor: FC<Props> = ({
         visible={showImageGallery}
         onClose={() => setShowImageGallery(false)}
         onSelect={handleImageGallerySelection}
+      />
+      {/* Edit existing gallery */}
+      <MultiImageGalleryModal
+        visible={editingGallery !== null}
+        onClose={() => setEditingGallery(null)}
+        onSelect={handleUpdateGallery}
+        initialImages={editingGallery?.images}
       />
       <style jsx global>{`
         .tiptap-table {
