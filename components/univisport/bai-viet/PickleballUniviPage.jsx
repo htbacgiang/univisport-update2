@@ -170,26 +170,26 @@ const checklistGroups = [
 ];
 
 export const pickleballFaqs = [
-  ['Đồng phục Pickleball nên dùng chất liệu gì?', 'Nên chọn theo môi trường sân. CLB cần cảm giác cao cấp có thể ưu tiên UNI SUPER COOL; đội cần áo nhẹ, nhanh khô có thể chọn UNI QUICK DRY; Polo chỉn chu có thể dùng Lascote thể thao hoặc UNI BLENDED theo cấu hình.'],
-  ['Polo hay T-shirt phù hợp với Pickleball hơn?', 'Polo phù hợp CLB, học viện, doanh nghiệp và giải đấu cần hình ảnh chuyên nghiệp. T-shirt phù hợp buổi tập, nhóm trẻ và sự kiện phong trào.'],
-  ['UNIVI có nhận đặt từ 10 áo không?', 'Có. Một số dòng và chính sách đối tác có thể bắt đầu từ 10 áo. Mẫu riêng phức tạp cần xác nhận theo cấu hình.'],
-  ['Có thiết kế đồng phục Pickleball miễn phí không?', 'Có. UNIVI hỗ trợ tư vấn concept, phối màu, bố trí logo, tên, số và nhà tài trợ.'],
-  ['Có thể in tên và số áo không?', 'Có. CLB nên gửi dữ liệu tên số trong một bảng thống nhất để hạn chế lỗi trước sản xuất.'],
-  ['Có thể in logo nhà tài trợ không?', 'Có. Logo nhà tài trợ nên được đặt theo thứ bậc rõ ràng, không lấn át logo CLB hoặc tên giải.'],
-  ['Đồng phục Pickleball có cần chống UV không?', 'Nên cân nhắc nếu thường chơi ngoài trời. Tính năng chống UV cần xác nhận theo mã vải cụ thể.'],
-  ['Có gửi mẫu vải trước khi đặt không?', 'UNIVI có thể tư vấn mẫu vải hoặc mẫu áo phù hợp để đội kiểm tra cảm giác, màu và độ co giãn trước khi chốt.'],
-  ['Có may đồng phục cho học viện Pickleball không?', 'Có. Học viện nên tách đồng phục HLV, học viên, quản lý và nhân sự vận hành.'],
-  ['Có may đồng phục cho giải đấu Pickleball không?', 'Có. Có thể triển khai áo vận động viên, ban tổ chức, trọng tài, check-in và nhà tài trợ.'],
-  ['Có giao hàng toàn quốc không?', 'Có. Tiến độ giao hàng cần xác nhận theo địa điểm, số lượng và lịch xưởng.'],
-  ['Có xuất hóa đơn VAT không?', 'Có. Doanh nghiệp có thể yêu cầu thông tin hóa đơn khi đặt hàng.'],
-  ['Có đổi size được không?', 'Chính sách đổi size phụ thuộc tình trạng sản phẩm và mức độ cá nhân hóa tên số, logo.'],
-  ['Làm sao để đặt bổ sung không lệch màu?', 'Cần lưu mã vải, mã màu, file thiết kế, thông số size và kỹ thuật hoàn thiện.'],
-  ['Có nên đặt dư áo cho thành viên mới không?', 'Nên cân nhắc nếu CLB tăng thành viên nhanh. Với áo có tên số, nên quản lý riêng phần cá nhân hóa.'],
-  ['APL nào phù hợp CLB doanh nghiệp?', 'APL09 và APL11 phù hợp vì màu navy, trắng, xám dễ giữ hình ảnh chuyên nghiệp.'],
-  ['APL nào phù hợp đội nữ?', 'APL06 và APL16 phù hợp khi đội muốn màu pastel, mềm hơn nhưng vẫn có tinh thần thể thao.'],
-  ['APL nào phù hợp giải đấu?', 'APL03, APL04 và APL08 phù hợp vì có nhận diện rõ, dễ tạo nhóm màu và nổi bật trên sân.'],
-  ['Chất liệu UNIVI có kiểm định an toàn không?', 'Theo proof point nội bộ, chất liệu UNIVI được kiểm định độc lập theo QCVN 01:2017/BCT về Formaldehyde và amin thơm chuyển hóa từ thuốc nhuộm Azo.'],
-  ['Cần chuẩn bị gì để nhận báo giá?', 'Bạn nên chuẩn bị logo, số lượng, sản phẩm cần làm, dải size, ngày cần hàng, môi trường sân và yêu cầu cá nhân hóa.'],
+  ['Univi có nhận đơn từ 10 áo không?', 'Có. Chính sách đồng phục Pickleball xác nhận đơn đối tác từ 10 chiếc. Cấu hình sản phẩm, mức giá và tiến độ vẫn cần được xác nhận theo mẫu, chất liệu và cá nhân hóa.'],
+  ['Có in tên và số riêng cho từng người không?', 'Có. Khách hàng nên gửi một bảng dữ liệu duy nhất, kiểm tra dấu tiếng Việt, số áo, size và mẫu trước khi khóa sản xuất.'],
+  ['Có giao đồng phục Pickleball toàn quốc không?', 'Có. Địa chỉ nhận, thời gian và chi phí vận chuyển cần được ghi rõ trong báo giá hoặc xác nhận đơn hàng.'],
+  ['Univi có xuất hóa đơn VAT không?', 'Có. Doanh nghiệp nên cung cấp thông tin xuất hóa đơn và xác nhận giá đã gồm hay chưa gồm VAT trước khi duyệt.'],
+  ['Đồng phục có chống UV không?', 'Một số mã vải/sản phẩm có tính năng chống UV, nhưng không nên mặc định cho mọi mẫu. Hãy yêu cầu xác nhận tính năng trên đúng cấu hình được báo giá.'],
+  ['Có gửi mẫu vải hoặc mẫu thử không?', 'Có hỗ trợ mẫu thử/mẫu vải theo yêu cầu. Hai bên cần thống nhất hình thức gửi, chi phí nếu có và thời gian hoàn trả trước khi triển khai.'],
+  ['Có đổi size sau khi nhận hàng không?', 'Khả năng đổi phụ thuộc chính sách và việc sản phẩm có cá nhân hóa hay không. Áo đã in tên số thường khó đổi, nên thử size trước khi sản xuất.'],
+  ['Làm sao đặt bổ sung không lệch màu?', 'Lưu file gốc, mã màu, mã vải, thông số form, kỹ thuật logo và mẫu chuẩn. Đợt sau vẫn cần đối chiếu vì lô nguyên liệu có thể có sai khác.'],
+  ['Polo hay T-shirt phù hợp hơn?', 'Polo phù hợp CLB, học viện và doanh nghiệp cần hình ảnh chỉn chu. T-shirt phù hợp buổi tập, giải phong trào và cộng đồng trẻ. Quyết định theo bối cảnh, không theo xu hướng.'],
+  ['Chất liệu nào phù hợp cho Pickleball?', 'Chất liệu đồng phục Pickleball có thể là UNI SUPER COOL, UNI QUICK DRY, nền vải ứng dụng UNI DRY, UNI BLENDED hoặc Lascote thể thao. Chọn theo cảm giác, độ thoáng, thoát ẩm, co giãn và use case.'],
+  ['Có form riêng cho nam và nữ không?', 'Có thể triển khai form nam và nữ tùy mẫu, số lượng và yêu cầu. Nên thử size bằng các động tác vươn tay, xoay vai, hạ trọng tâm và bước ngang.'],
+  ['Có thể in logo nhà tài trợ không?', 'Có. Cần file logo chuẩn, quy định vị trí, kích thước và phiên bản màu. Nên lập sơ đồ tài trợ trước khi duyệt thiết kế cuối.'],
+  ['Có sản xuất áo cho giải đấu không?', 'Có. Brief nên tách vận động viên, BTC, trọng tài, check-in và tình nguyện viên để mỗi vai trò có màu và nhận diện phù hợp.'],
+  ['Thời gian sản xuất bao lâu?', 'Mẫu sẵn có thể 2–3 ngày và mẫu mới 10–12 ngày. Đây là mốc tham khảo; tiến độ chính thức phải xác nhận theo số lượng, mẫu và lịch xưởng.'],
+  ['Có hỗ trợ thiết kế không?', 'Có. Univi hỗ trợ tư vấn và thiết kế theo nhận diện. Khách hàng cần cung cấp logo, màu, đối tượng mặc, ngày cần hàng và vị trí nhà tài trợ.'],
+  ['Có thể làm nhiều vai trò trong một đơn không?', 'Có. Nên dùng cùng hệ màu/cổ/họa tiết và thay màu nền hoặc nhãn vai trò để HLV, BTC, trọng tài và check-in dễ phân biệt.'],
+  ['Giá 360.000 đồng có áp dụng cho mọi đơn không?', 'Không. Đây là giá niêm yết được xác nhận cho 14 mã polo UniPick trong dữ liệu hiện tại. Đơn tùy chỉnh cần báo lại theo số lượng, vải, logo, tên số và tiến độ.'],
+  ['Có thể làm áo khoác và merchandise cùng bộ không?', 'Có thể xây dựng hệ mở rộng gồm áo khoác, mũ, túi hoặc áo cổ động. Phạm vi sản phẩm và MOQ cần được xác nhận trong brief cụ thể.'],
+  ['Làm sao chọn màu dễ lên hình?', 'Kiểm tra màu dưới nắng, ánh sáng trong nhà và camera điện thoại. Giữ tương phản giữa nền áo, logo CLB, tên số và nhà tài trợ; tránh quá nhiều mảng nhỏ.'],
+  ['Cần chuẩn bị gì để nhận báo giá chính xác?', 'Chuẩn bị số lượng theo vai trò/size, mẫu mong muốn, loại vải, logo, tên số, địa chỉ giao và ngày cần nhận. Brief đủ giúp báo giá ít điều kiện ẩn hơn.'],
 ];
 
 function Section({ id, title, children, className = '' }) {
@@ -269,9 +269,9 @@ export default function PickleballUniviPage() {
     <div className="text-gray-800">
       <section className="bg-white pb-8">
         <p className="mb-2 text-sm font-semibold text-[#105d97]">UniPick by UNIVI</p>
-        <h2 className="text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <p className="text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Đồng Phục Pickleball Thiết Kế Theo Yêu Cầu Cho CLB, Học Viện & Giải Đấu
-        </h2>
+        </p>
         <p className="mt-4 max-w-4xl text-base leading-relaxed text-gray-700">
           Đồng phục Pickleball không chỉ là một chiếc áo giống nhau. Với CLB, học viện,
           doanh nghiệp và giải đấu, đây là nhận diện thương hiệu, công cụ gắn kết thành
@@ -302,7 +302,43 @@ export default function PickleballUniviPage() {
         </div>
       </section>
 
-      <Section id="trust-badge" eyebrow="" title="1. Năng lực sản xuất" className="border-t border-gray-100">
+      <Section id="dong-phuc-pickleball-khong-chi-la-ao" title="1. Đồng Phục Pickleball Không Chỉ Là Một Chiếc Áo" className="border-t border-gray-100">
+        <div className="space-y-2 leading-relaxed">
+          <p>
+            Đồng phục Pickleball xuất hiện ở gần như mọi điểm chạm của một cộng đồng: trên sân,
+            trong ảnh đội, video recap, livestream, lễ trao giải, buổi giao lưu và bài đăng của
+            thành viên. Nếu được xây dựng có chủ đích, chiếc áo trở thành một tài sản nhận diện có
+            thể được sử dụng lặp lại thay vì một khoản chi chỉ phục vụ ngày thi đấu.
+          </p>
+          <p>
+            Với CLB, màu áo và bố cục logo giúp thành viên nhận ra nhau nhanh hơn, nhất là trong
+            buổi giao lưu đông người. Với học viện, đồng phục Pickleball phân biệt huấn luyện viên,
+            học viên và bộ phận vận hành. Với doanh nghiệp, đây là cách đưa bộ nhận diện vào hoạt
+            động thể thao mà không biến người mặc thành một bảng quảng cáo. Với giải đấu, hệ áo theo
+            vai trò giúp vận động viên dễ tìm đúng người hỗ trợ.
+          </p>
+          <p>
+            Giá trị cộng đồng cũng quan trọng không kém. Khi thành viên chủ động mặc áo trong buổi
+            chơi thường kỳ, họ đang thể hiện cảm giác thuộc về một nhóm. Hình ảnh đồng nhất tạo
+            thêm chất liệu cho truyền thông, giúp nhà tài trợ được ghi nhận đúng vị trí và mở đường
+            cho merchandise như áo phiên bản mùa giải, mũ, khăn, túi hoặc áo khoác.
+          </p>
+          <p>
+            Điều kiện là đồng phục phải thực sự dễ mặc. Nếu áo nóng, form không hợp hoặc tên số
+            nhanh xuống cấp, thành viên sẽ ngừng sử dụng. Vì vậy, nhận diện chỉ bền khi trải nghiệm
+            mặc đủ tốt.
+          </p>
+        </div>
+        <div className="mt-6">
+          <ImageBlock
+            src="https://live.staticflickr.com/65535/55373546615_224cae8dae_b.jpg"
+            alt="Đồng phục Pickleball CLB học viện và giải đấu"
+            caption="Đồng phục Pickleball được xây dựng có chủ đích trở thành tài sản nhận diện, không chỉ là trang phục thi đấu một lần."
+          />
+        </div>
+      </Section>
+
+      <Section id="trust-badge" eyebrow="" title="2. Năng lực sản xuất" className="">
         <p className="mb-3 leading-relaxed">
           UNIVI không định vị là xưởng may áo thun giá rẻ. UNIVI là thương hiệu nghiên cứu và
           phát triển đồng phục thể thao chuyên dụng cho chuỗi phòng tập, CLB và đội nhóm thể
@@ -327,23 +363,32 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="dong-phuc-pickleball-la-gi" eyebrow="" title="2. Đồng Phục Pickleball Là Gì?">
+      <Section id="dong-phuc-pickleball-la-gi" eyebrow="" title="3. Đồng Phục Pickleball Là Gì?">
         <div className="space-y-2 leading-relaxed">
           <p>
-            Đồng phục Pickleball là hệ trang phục được thiết kế cho người chơi, huấn luyện
-            viên, thành viên CLB, ban tổ chức, trọng tài hoặc doanh nghiệp khi tham gia luyện
-            tập và thi đấu Pickleball. Sản phẩm thường bắt đầu từ áo Polo hoặc T-shirt, sau đó
-            mở rộng sang chân váy, quần short, áo khoác, áo sự kiện và merchandise.
+            Đồng phục Pickleball là hệ trang phục được thiết kế cho một đội nhóm hoặc tổ chức,
+            đồng thời đáp ứng hai yêu cầu: hỗ trợ vận động đặc thù và truyền tải nhận diện
+            chung. Nó khác áo thể thao thông thường ở việc có brief rõ về người mặc, môi trường
+            sân, tần suất sử dụng, form nam nữ, màu thương hiệu, logo, tên số và khả năng đặt
+            bổ sung.
           </p>
           <p>
-            Điểm khác biệt của đồng phục Pickleball nằm ở đặc thù vận động: chạy ngắn, đổi
-            hướng nhanh, hạ trọng tâm, xoay thân và vung tay liên tục. Nếu áo giữ mồ hôi, bí
-            vai hoặc form quá cứng, trải nghiệm trên sân sẽ giảm rất nhanh.
+            Khi phát triển đồng phục Pickleball, cần tính đến các nhịp chạy ngắn, dừng và đổi
+            hướng nhanh. Người chơi liên tục di chuyển ngang ở khu vực gần lưới, hạ trọng tâm
+            để xử lý bóng thấp, vươn tay và xoay vai khi giao hoặc đánh bóng. Áo vì thế không
+            nên kéo căng ở lưng trên, siết nách hoặc cuộn gấu khi người mặc nâng tay. Quần và
+            chân váy cần cho phép bước ngang rộng mà vẫn giữ kín đáo.
           </p>
           <p>
-            Với CLB và học viện, đồng phục giúp thành viên nhận ra mình thuộc về một cộng
-            đồng, giúp đội nhóm lên hình đồng bộ và giúp thương hiệu CLB xuất hiện nhất quán
-            trên ảnh, video, giải giao hữu hoặc bài đăng social.
+            Về chất liệu đồng phục Pickleball, ưu tiên không chỉ là &ldquo;thấm hút&rdquo;. Vải
+            cần đưa ẩm ra bề mặt ngoài để bay hơi, khô tương đối nhanh, nhẹ khi đã thấm mồ hôi
+            và có độ co giãn phù hợp. Với sân ngoài trời, cần kiểm tra riêng tính năng chống UV
+            của đúng mã vải; không nên mặc định mọi loại vải thể thao đều có khả năng này.
+          </p>
+          <p>
+            Về form, athletic fit ôm vừa thường phù hợp thi đấu, trong khi regular fit dễ dùng
+            cho thành viên nhiều độ tuổi. Nữ có thể cần cấu trúc eo, hông và chiều dài riêng.
+            Đây là lý do một bảng size chung cho mọi người thường không đủ.
           </p>
         </div>
         <div className="mt-6">
@@ -355,53 +400,176 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="vi-sao-chon-univi" eyebrow="" title="3. Vì Sao Chọn Đồng Phục Univi?">
-        <p className="mb-2 leading-relaxed">
-          UNIVI phát triển sản phẩm theo nguyên tắc gốc vững - diện sang: xử lý chất liệu, form,
-          độ thoáng, độ co giãn và độ an toàn trước; sau đó mới hoàn thiện nhận diện, màu sắc và
-          hình ảnh thương hiệu.
-        </p>
-        <div className="mb-3">
-          <ImageBlock
-            src="https://live.staticflickr.com/65535/55260155236_1052c9e90c_b.jpg"
-            alt="Sáu lý do chọn đồng phục Pickleball UNIVI cho CLB và giải đấu"
-            caption="UNIVI tư vấn đồng phục Pickleball từ chất liệu, thiết kế đến khả năng đặt bổ sung."
-          />
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {reasons.map(([title, text]) => (
-            <TextCard key={title} title={title}>
-              <p>{text}</p>
-            </TextCard>
-          ))}
-        </div>
-      </Section>
-
-      <Section id="giai-phap-theo-doi-tuong" eyebrow="" title="4. Giải Pháp Đồng Phục Theo Đối Tượng">
-        <div className="grid gap-4 md:grid-cols-2">
-          {audienceSolutions.map((item) => (
-            <TextCard key={item.title} title={item.title}>
-              <p>{item.text}</p>
-            </TextCard>
-          ))}
+      <Section id="vi-sao-clb-can-dong-phuc-rieng" eyebrow="" title="4. Vì Sao CLB Pickleball Nên Xây Dựng Đồng Phục Riêng?">
+        <div className="space-y-6 leading-relaxed">
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">4.1 Tăng nhận diện CLB</h3>
+            <p>
+              Màu chủ đạo, logo, kiểu cổ và hệ họa tiết đồng phục Pickleball nhất quán giúp CLB
+              được nhận ra trong ảnh toàn sân hoặc video góc rộng. Nhận diện tốt không đồng nghĩa
+              với in logo thật lớn. Một bố cục có khoảng thở, tương phản đúng và vị trí ổn định
+              thường dễ nhớ hơn.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">4.2 Tạo cảm giác thuộc về cộng đồng</h3>
+            <p>
+              Đồng phục Pickleball tạo một nghi thức gia nhập đơn giản: thành viên mới nhận áo,
+              hiểu màu đội và xuất hiện trong buổi chơi cùng nhóm. Giá trị này tăng lên khi form
+              đủ dễ mặc cho nhiều vóc dáng và thành viên muốn dùng áo ngoài sự kiện chính.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">4.3 Chuyên nghiệp khi giao lưu và thi đấu</h3>
+            <p>
+              Khi hai hoặc nhiều CLB cùng giao lưu, màu áo giúp phân đội và tạo hình ảnh có tổ
+              chức. Với đội thi đấu, tên, số và logo cần được chốt theo một quy chuẩn để trọng tài,
+              người xem và bộ phận truyền thông nhận diện thuận lợi.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">4.4 Hỗ trợ truyền thông và tài trợ</h3>
+            <p>
+              Nhà tài trợ cần vùng hiển thị đủ rõ nhưng không xung đột với logo CLB. File thiết kế
+              nên quy định vị trí ngực, tay và lưng; kích thước tối đa; màu âm bản/dương bản;
+              khoảng cách an toàn. Nhờ đó, logo vẫn đọc được trên ảnh và livestream.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">4.5 Dễ mở rộng thành merchandise</h3>
+            <p>
+              Một ngôn ngữ thiết kế tốt có thể mở rộng từ áo thi đấu sang áo cổ động, áo khoác,
+              mũ và túi. CLB vừa tăng nhận diện vừa có thêm sản phẩm dành cho người thân, cổ động
+              viên hoặc thành viên không thi đấu.
+            </p>
+          </div>
         </div>
         <div className="mt-6">
           <ImageBlock
-            src="https://live.staticflickr.com/65535/55319883323_875fd6ae86_b.jpg"
+            src="https://live.staticflickr.com/65535/55377342940_fb6d2bb599_b.jpg"
+            alt="CLB Pickleball xây dựng đồng phục riêng để tăng nhận diện và gắn kết cộng đồng"
+            caption="Đồng phục riêng giúp CLB Pickleball tăng nhận diện, tạo cảm giác thuộc về và hỗ trợ truyền thông hiệu quả."
+          />
+        </div>
+      </Section>
+
+      <Section id="vi-sao-chon-univi" eyebrow="" title="5. Vì Sao CLB Chọn Univi?">
+        <div className="space-y-4 leading-relaxed">
+          <p>
+            Trong lĩnh vực đồng phục Pickleball, Đồng Phục Univi là đơn vị tiên phong cung cấp
+            giải pháp đồng phục thể thao chuyên nghiệp cho chuỗi phòng tập và đội nhóm thể thao
+            tại Việt Nam. Điểm khác biệt không nằm ở việc bán một mẫu polo, mà ở cách nghiên cứu
+            theo bộ môn, vai trò và trải nghiệm sử dụng.
+          </p>
+          <div className="mb-3">
+            <ImageBlock
+              src="https://live.staticflickr.com/65535/55260155236_1052c9e90c_b.jpg"
+              alt="Năng lực sản xuất đồng phục Pickleball chuyên nghiệp tại UNIVI"
+              caption="UNIVI tư vấn đồng phục Pickleball từ chất liệu, thiết kế đến khả năng đặt bổ sung."
+            />
+          </div>
+          <ul className="space-y-2">
+            {[
+              'Xưởng sản xuất 2.000m² tại Đan Phượng.',
+              'Công suất 100.000 sản phẩm/tháng.',
+              'Phòng R&D nghiên cứu chất liệu, form, độ co giãn, thoáng khí, thoát ẩm, chống xù và độ bền màu.',
+              'Công nghệ UNI DRY hỗ trợ thoát ẩm.',
+              'Hỗ trợ tư vấn và thiết kế theo bộ nhận diện.',
+              'Có thể lưu chuẩn mẫu để phục vụ tái sản xuất.',
+            ].map((item) => (
+              <li key={item} className="flex gap-2 text-gray-700">
+                <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-[#105d97]" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p>
+            Năng lực lớn chỉ có ý nghĩa khi được chuyển thành quy trình kiểm soát cho từng đơn
+            đồng phục Pickleball. Với CLB, giá trị thực tế là có người cùng kiểm brief, chọn đúng
+            nền vải, phân vai, quản lý danh sách tên số và chuẩn hóa lần đặt sau. Với giải đấu,
+            đó là khả năng phối hợp nhiều mẫu trong cùng hệ nhận diện.
+          </p>
+          <p>
+            Thông tin xưởng và công suất giúp đánh giá năng lực; mẫu thật và điều khoản báo giá
+            giúp đánh giá độ phù hợp. Quý đối tác nên yêu cầu mẫu vải, mockup, bảng size, phạm
+            vi QC và mốc duyệt trước khi chốt đơn.
+          </p>
+        </div>
+      </Section>
+
+      <Section id="giai-phap-theo-doi-tuong" eyebrow="" title="6. Giải Pháp Đồng Phục Theo Từng Đối Tượng">
+        <div className="space-y-6 leading-relaxed">
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.1 Đồng phục CLB Pickleball</h3>
+            <p>
+              Với đồng phục Pickleball cho CLB, cần ưu tiên tính dễ mặc, khả năng bổ sung và nhận
+              diện dài hạn. Nên có một mẫu lõi dùng nhiều mùa, sau đó phát triển phiên bản giải
+              đấu hoặc kỷ niệm. Polo phù hợp hình ảnh chỉn chu; T-shirt phù hợp nhóm trẻ và buổi
+              tập thường kỳ.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.2 Đồng phục học viện Pickleball</h3>
+            <p>
+              Học viện nên phân vai đồng phục Pickleball bằng chi tiết rõ nhưng vẫn cùng hệ màu:
+              huấn luyện viên, trợ giảng, học viên và vận hành. Áo HLV cần vận động tốt và dễ nhận
+              ra từ xa. Áo học viên nên dễ cấp phát, dễ giặt và dễ đặt thêm theo khóa.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.3 Đồng phục doanh nghiệp</h3>
+            <p>
+              Đồng phục cho team building hoặc câu lạc bộ nội bộ cần cân bằng giữa nhận diện công
+              ty và tinh thần thể thao. Logo doanh nghiệp nên có mặt nhưng không lấn át trải nghiệm.
+              Nếu dùng sau sự kiện, nhân viên sẽ tiếp tục biến chiếc áo thành một điểm chạm thương
+              hiệu tự nhiên.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.4 Đồng phục giải đấu</h3>
+            <p>
+              Ban tổ chức cần lập ma trận màu trước khi thiết kế: vận động viên, BTC, trọng tài,
+              check-in, y tế và tình nguyện viên. Màu phải đủ khác nhau để nhận diện nhanh trên
+              sân, đồng thời giữ vị trí cho logo giải và nhà tài trợ.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.5 Đồng phục ban tổ chức</h3>
+            <p>
+              Áo BTC nên dễ nhìn, có vùng lưng rõ và đủ lịch sự khi tiếp khách. Polo hoặc polo zip
+              là lựa chọn thực tế; chất liệu cần phù hợp với việc di chuyển liên tục giữa sân, khu
+              kỹ thuật và sân khấu.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.6 Đồng phục trọng tài</h3>
+            <p>
+              Trọng tài cần màu tách biệt với vận động viên, form gọn và khả năng thoát ẩm. Chi
+              tiết trang trí nên tiết chế để vai trò chuyên môn được nhận ra ngay.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">6.7 Đồng phục check-in và lễ tân</h3>
+            <p>
+              Nhóm check-in giao tiếp gần với khách và nhà tài trợ nên ưu tiên form đứng, ít nhăn
+              và bảng tên dễ đọc. Cách phân vai này tương đồng tư duy{' '}
+              <Link href="/giai-phap-2s" className="font-semibold text-[#105d97] hover:underline">
+                Giải pháp 2S Uniform
+              </Link>
+              : không dùng một mẫu cho mọi nhiệm vụ, mà đồng bộ bằng cùng hệ nhận diện.
+            </p>
+          </div>
+        </div>
+        <div className="mt-6">
+          <ImageBlock
+            src="https://live.staticflickr.com/65535/55341996717_e884553f62_b.jpg"
             alt="Đồng phục Pickleball cho CLB học viện doanh nghiệp và giải đấu"
             caption="Mỗi nhóm khách hàng cần một cấu hình đồng phục Pickleball riêng theo mục tiêu sử dụng."
           />
         </div>
-        <p className="mt-5 text-sm leading-relaxed text-gray-600">
-          Học viện có thể tham khảo thêm{' '}
-          <Link href="/giai-phap-2s" className="font-semibold text-[#105d97] hover:underline">
-            giải pháp 2S Uniform
-          </Link>{' '}
-          để tách Staff Uniform và Member Uniform.
-        </p>
       </Section>
 
-      <Section id="pain-points" eyebrow="" title="5. Lỗi Đau Khi Chọn Đồng Phục Pickleball">
+      <Section id="pain-points" eyebrow="" title="7. Lỗi Đau Khi Chọn Đồng Phục Pickleball">
         <div className="grid gap-4 md:grid-cols-3">
           {painPoints.map(([title, text]) => (
             <TextCard key={title} title={title}>
@@ -430,7 +598,7 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="chat-lieu" eyebrow="" title="6. Chất Liệu Chuyên Dụng Cho Pickleball">
+      <Section id="chat-lieu" eyebrow="" title="8. Chất Liệu Chuyên Dụng Cho Pickleball">
         <p className="mb-5 leading-relaxed">
           Chất liệu là phần quyết định trải nghiệm thật trên sân. Một mẫu tốt phải được thử trong
           chuyển động: giao bóng, vung tay, xoay vai, hạ trọng tâm và di chuyển ngang.
@@ -458,7 +626,7 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="uni-dry" eyebrow="" title="7. Công Nghệ UNI DRY">
+      <Section id="uni-dry" eyebrow="" title="9. Công Nghệ UNI DRY">
         <div className="space-y-2 leading-relaxed">
           <p>
             <Link href="/cong-nghe-uni-dry" className="font-semibold text-[#105d97] hover:underline">
@@ -486,7 +654,7 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="vai-tro-trong-clb" eyebrow="" title="8. Giải Pháp Theo Từng Vai Trò Trong CLB">
+      <Section id="vai-tro-trong-clb" eyebrow="" title="10. Giải Pháp Theo Từng Vai Trò Trong CLB">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {roleSolutions.map(([title, text]) => (
             <TextCard key={title} title={title}>
@@ -496,7 +664,7 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="quy-trinh" eyebrow="" title="9. Quy Trình Đặt May Đồng Phục Pickleball">
+      <Section id="quy-trinh" eyebrow="" title="11. Quy Trình Đặt May Đồng Phục Pickleball">
         <ProcessSteps variant="vertical" />
         <p className="mt-5 leading-relaxed">
           Brief tốt nên có logo gốc, màu thương hiệu, số lượng dự kiến, nhóm người mặc, sản
@@ -506,7 +674,7 @@ export default function PickleballUniviPage() {
         </p>
       </Section>
 
-      <Section id="14-mau-ao-polo-pickleball" eyebrow="" title="10. 14 Mẫu Áo Polo Pickleball UniPick">
+      <Section id="14-mau-ao-polo-pickleball" eyebrow="" title="12. 14 Mẫu Áo Polo Pickleball UniPick">
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4 xl:gap-6">
           {unipickModels.map(([code, name, summary, href, fit], index) => (
             <Link
@@ -536,7 +704,7 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="he-san-pham" eyebrow="" title="11. Không Chỉ Có Polo Pickleball">
+      <Section id="he-san-pham" eyebrow="" title="13. Không Chỉ Có Polo Pickleball">
         <p className="mb-5 leading-relaxed">
           Polo là sản phẩm mũi nhọn vì vừa lịch sự vừa thể thao. Tuy nhiên, một hệ đồng phục
           Pickleball theo yêu cầu có thể gồm nhiều dòng để phù hợp vai trò, vóc dáng và bối cảnh
@@ -569,7 +737,7 @@ export default function PickleballUniviPage() {
         </p>
       </Section>
 
-      <Section id="bang-gia" eyebrow="" title="12. Bảng Giá Đồng Phục Pickleball">
+      <Section id="bang-gia" eyebrow="" title="14. Bảng Giá Đồng Phục Pickleball">
         <p className="mb-5 leading-relaxed">
           Giá đồng phục Pickleball sẽ phụ thuộc vào số lượng đặt may, chất liệu, kiểu sản phẩm,
           kỹ thuật hoàn thiện logo, tên số, tiến độ cần hàng và mức độ tùy biến của từng dự án.
@@ -590,22 +758,54 @@ export default function PickleballUniviPage() {
         </div>
       </Section>
 
-      <Section id="internal-link-hub" eyebrow="" title="13. Bài Viết Liên Quan">
-        <div className="grid gap-3 md:grid-cols-2">
-          {relatedLinks.map(([label, href]) => (
-            <Link
-              key={href}
-              href={href}
-              className="rounded-lg border border-gray-100 bg-gray-50 p-4 font-semibold text-[#105d97] transition hover:border-[#105d97] hover:bg-white"
-            >
-              {label}
-            </Link>
-          ))}
+      <Section id="dong-phuc-pickleball-theo-khu-vuc" eyebrow="" title="15. Đồng Phục Pickleball Tại Hà Nội, TP.HCM Và Toàn Quốc">
+        <div className="space-y-6 leading-relaxed">
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">15.1 Đồng phục Pickleball Hà Nội</h3>
+            <p>
+              Khách hàng đặt đồng phục Pickleball tại Hà Nội có lợi thế tiếp cận văn phòng ở Hà
+              Đông và xưởng tại Đan Phượng để xem mẫu, trao đổi brief hoặc đối chiếu màu khi cần.
+              Với dự án có nhiều vai trò, buổi duyệt mẫu trực tiếp giúp chốt form và chất liệu
+              nhanh hơn.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">15.2 Đồng phục Pickleball TP.HCM</h3>
+            <p>
+              Univi hỗ trợ đồng phục Pickleball TP.HCM theo quy trình từ xa: nhận brief, gửi
+              mockup, thống nhất mẫu vải/mẫu thử, chốt danh sách size và giao hàng. Cần cộng thời
+              gian vận chuyển vào kế hoạch, đặc biệt khi hàng phục vụ ngày khai mạc cố định.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">15.3 Đồng phục Pickleball Đà Nẵng</h3>
+            <p>
+              CLB, resort và ban tổ chức tại Đà Nẵng có thể dùng quy trình duyệt từ xa tương tự.
+              Brief nên ghi rõ sân trong nhà hay ngoài trời, lịch sự kiện, cơ cấu khách du
+              lịch/thành viên và địa chỉ nhận. Với resort, nên gửi ảnh không gian để bảng màu
+              đồng phục hài hòa với kiến trúc.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-base font-bold text-gray-900">15.4 Đồng phục Pickleball toàn quốc</h3>
+            <p>
+              Với các tỉnh thành khác, điều quan trọng là quản lý mẫu và dữ liệu. Ảnh màu trên
+              màn hình có thể sai khác, vì vậy dự án nhạy màu nên duyệt mẫu vật lý. Danh sách
+              size, tên số và kiện hàng cần có mã đối chiếu. Thời gian và phí vận chuyển cụ thể
+              cần xác nhận theo địa chỉ và đơn hàng.
+            </p>
+          </div>
         </div>
-
+        <div className="mt-6">
+          <ImageBlock
+            src="https://live.staticflickr.com/65535/55372197542_63bfd8685b_b.jpg"
+            alt="Đồng phục Pickleball giao hàng toàn quốc từ xưởng UNIVI tại Hà Nội"
+            caption="UNIVI sản xuất và giao đồng phục Pickleball toàn quốc, hỗ trợ tư vấn từ xa cho CLB, học viện và giải đấu tại TP.HCM, Đà Nẵng và các tỉnh thành."
+          />
+        </div>
       </Section>
 
-      <Section id="footer-seo" eyebrow="" title="14. Đồng Phục Pickleball Theo Yêu Cầu Tại UNIVI">
+      <Section id="footer-seo" eyebrow="" title="16. Đồng Phục Pickleball Theo Yêu Cầu Tại UNIVI">
         <div className="space-y-4 leading-relaxed">
           <p>
             Đồng Phục Univi là đơn vị cung cấp giải pháp đồng phục thể thao chuyên dụng cho CLB,
@@ -625,14 +825,14 @@ export default function PickleballUniviPage() {
         </div>
         <div className="mt-6">
           <ImageBlock
-            src="https://live.staticflickr.com/65535/55237858841_2327afd407_b.jpg"
+            src="https://live.staticflickr.com/65535/55365932019_08b8ae116e_b.jpg"
             alt="Đồng phục Pickleball theo yêu cầu tại UNIVI"
             caption="UNIVI tư vấn và sản xuất đồng phục Pickleball theo cấu hình thực tế của từng CLB, học viện, doanh nghiệp và giải đấu."
           />
         </div>
       </Section>
 
-      <Section id="checklist" eyebrow="" title="15. Checklist Chốt Đơn Cho CLB, Học Viện Và Giải Đấu">
+      <Section id="checklist" eyebrow="" title="17. Checklist Chốt Đơn Cho CLB, Học Viện Và Giải Đấu">
         <p className="mb-5 leading-relaxed">
           Trước khi yêu cầu báo giá, người phụ trách nên xác định rõ đồng phục sẽ phục vụ mục tiêu
           nào: áo thành viên CLB, áo thi đấu, áo giải đấu, đồng phục ban tổ chức hay hệ sản phẩm

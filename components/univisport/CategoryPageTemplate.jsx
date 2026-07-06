@@ -31,24 +31,24 @@ const CATEGORY_H1 = {
 const CATEGORY_DESCRIPTION = {
   'dong-phuc-gym':
     'Đồng phục Gym thiết kế theo yêu cầu cho phòng tập, PT Studio và chuỗi Fitness Center. Tư vấn chất liệu UNI DRY, phân vai đội ngũ, 2S Uniform, xưởng 2.000m2.',
-
   'dong-phuc-yoga-pilates':
-    'Giải pháp đồng phục Yoga Pilates cho studio, HLV và cộng đồng Wellness: chọn chất liệu, dáng mặc, 2S Uniform, quy trình sản xuất và hình ảnh sản phẩm thực tế.',
+    'Đồng Phục Univi tiên phong cung cấp giải pháp đồng phục Yoga Pilates theo yêu cầu cho Yoga Studio, Pilates Studio và Wellness Center trên toàn quốc. Hệ đồng phục được phát triển dựa trên đặc thù vận động, trải nghiệm người mặc và yêu cầu nhận diện thương hiệu của từng studio.',
 
   'dong-phuc-pickleball':
-    'Đồng phục Pickleball thiết kế theo yêu cầu cho CLB, học viện, doanh nghiệp và giải đấu. Vải thể thao UNI DRY, xưởng 2.000m2, đặt từ 10 áo, tư vấn thiết kế miễn phí.',
+    'Đồng Phục Univi tiên phong cung cấp giải pháp đồng phục Pickleball theo yêu cầu cho câu lạc bộ, học viện, giải đấu và cộng đồng Pickleball tại Việt Nam. Sản phẩm được tối ưu về độ thoáng khí, khả năng vận động và hình ảnh thương hiệu trong thi đấu cũng như tập luyện.',
 
-  'dong-phuc-chay-bo':
-    'May đồng phục chạy bộ theo yêu cầu cho CLB, doanh nghiệp, đội nhóm và sự kiện. Chất liệu nhẹ, thoát ẩm nhanh, phù hợp chạy dài và hoạt động ngoài trời.',
+  'dong-phuc-running':
+    'Đồng Phục Univi tiên phong cung cấp giải pháp đồng phục Running theo yêu cầu cho câu lạc bộ chạy bộ, doanh nghiệp và cộng đồng chạy bộ trên toàn quốc. Chất liệu được lựa chọn nhằm tối ưu trọng lượng, khả năng thoát ẩm và sự thoải mái trên quãng đường dài.',
 
   'dong-phuc-mma':
-    'May đồng phục MMA, Boxing, Kickboxing và võ thuật theo yêu cầu. Form gọn, bền, co giãn tốt, phù hợp tập luyện cường độ cao và nhận diện CLB.',
+    'Đồng Phục Univi tiên phong cung cấp giải pháp đồng phục MMA theo yêu cầu cho phòng tập võ thuật, Boxing, Kickboxing và Martial Arts tại Việt Nam. Đồng phục được phát triển phù hợp với môi trường vận động cường độ cao, yêu cầu co giãn lớn và độ bền sử dụng lâu dài.',
 
   'dong-phuc-golf-tennis':
-    'May đồng phục Golf Tennis theo yêu cầu cho CLB, đội nhóm, học viện và sự kiện. Thiết kế lịch sự, thoáng nhẹ, giữ form tốt và đồng bộ thương hiệu.',
+    'Đồng Phục Univi tiên phong cung cấp giải pháp đồng phục Golf và Tennis theo yêu cầu cho học viện, câu lạc bộ và doanh nghiệp. Thiết kế tập trung vào sự chỉn chu, khả năng vận động linh hoạt và tính nhận diện thương hiệu trong môi trường thể thao cao cấp.',
 
   'dong-phuc-ao-gio':
-    'May đồng phục áo gió thể thao theo yêu cầu cho CLB, phòng tập, doanh nghiệp và đội nhóm. Chất liệu nhẹ, chắn gió, dễ phối cùng hệ đồng phục.',
+    'Đồng Phục Univi tiên phong cung cấp giải pháp áo gió đồng phục theo yêu cầu cho doanh nghiệp, câu lạc bộ và các sự kiện thể thao ngoài trời. Sản phẩm cân bằng giữa khả năng bảo vệ, sự thoải mái và yếu tố nhận diện thương hiệu.',
+
 };
 
 
@@ -487,16 +487,81 @@ export default function
           {/* Main Content */}
           <div className="w-full lg:w-4/5">
 
-            <section className="sr-only" aria-label="Thông tin danh mục">
-              <h1>
-                {CATEGORY_H1[categorySlug] || displayCategory}
-              </h1>
+            {/* H1 + mô tả + Stats card — hiển thị cho tất cả danh mục */}
+            <>
+              {/* H1 + đoạn mô tả */}
+              <section className="bg-white rounded-xl border border-gray-100 p-3 mb-4">
+                <h1 className="text-xl font-bold text-gray-900 mb-1">
+                  {categorySlug === 'dong-phuc-gym'
+                    ? 'May Đồng Phục Gym Theo Yêu Cầu Cho Phòng Tập, PT Studio Và Fitness Center'
+                    : CATEGORY_H1[categorySlug] || displayCategory}
+                </h1>
+                {categorySlug === 'dong-phuc-gym' ? (
+                  <div className="hidden md:block space-y-2 text-gray-700 leading-7">
+                    <p>
+                      Đồng phục Gym không chỉ là trang phục làm việc mà còn là một phần
+                      của trải nghiệm thương hiệu trong phòng tập hiện đại. Từ huấn luyện
+                      viên cá nhân, GroupX Instructor, lễ tân đến đội ngũ sale và hội viên,
+                      mỗi vị trí đều cần một cấu hình đồng phục khác nhau về chất liệu,
+                      form dáng và khả năng vận động.
+                    </p>
+                    <p>
+                      Một hệ đồng phục được thiết kế đúng ngay từ đầu sẽ giúp phòng tập
+                      nâng cao nhận diện thương hiệu, tạo trải nghiệm chuyên nghiệp cho
+                      hội viên và giảm đáng kể chi phí phát sinh khi mở rộng thêm cơ sở
+                      hoặc tuyển mới nhân sự trong tương lai.
+                    </p>
+                  </div>
+                ) : (
+                  <p className="hidden md:block text-gray-700 leading-7">
+                    {CATEGORY_DESCRIPTION[categorySlug] ||
+                      `Khám phá các mẫu ${displayCategory.toLowerCase()} tại Đồng Phục Univi. Nhận thiết kế và sản xuất theo yêu cầu cho phòng tập, CLB, đội nhóm và doanh nghiệp.`}
+                  </p>
+                )}
+              </section>
 
-              <p>
-                {CATEGORY_DESCRIPTION[categorySlug] ||
-                  `Khám phá các mẫu ${displayCategory.toLowerCase()} tại Đồng Phục Univi. Nhận thiết kế và sản xuất theo yêu cầu cho phòng tập, CLB, đội nhóm và doanh nghiệp.`}
-              </p>
-            </section>
+              {/* Stats card */}
+              <section
+                className="mb-5 rounded-xl border border-[#105d97]/20 bg-gradient-to-r from-[#105d97]/5 to-white px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-3"
+                aria-label="Thông tin năng lực sản xuất đồng phục"
+              >
+                {/* Nhãn */}
+                <div className="sm:border-r sm:border-[#105d97]/20 sm:pr-5 shrink-0">
+                  <p className="text-sm font-bold text-[#105d97] uppercase tracking-wide leading-tight">
+                    Năng lực Univi
+                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5">Cam kết chất lượng</p>
+                </div>
+
+                {/* Danh sách checkmark */}
+                <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
+                  {[
+                    'Xưởng 2.000m² tại Hà Nội',
+                    '100.000 sản phẩm/tháng',
+                    'Thiết kế miễn phí',
+                    'Lưu chuẩn tái sản xuất',
+                    'Giao hàng toàn quốc',
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-1.5 text-sm text-gray-700">
+                      <svg
+                        className="w-4 h-4 shrink-0 text-[#105d97]"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </>
+
 
             {/* Top Controls Bar */}
             <div className="bg-white border border-gray-200 rounded-lg px-4 py-3 mb-2 flex flex-wrap items-center gap-3">

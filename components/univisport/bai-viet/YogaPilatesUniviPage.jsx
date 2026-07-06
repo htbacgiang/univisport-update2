@@ -21,36 +21,7 @@ const trustBadges = [
   ['Thiết kế miễn phí', 'Tư vấn phối màu, logo, vị trí nhận diện và hệ sản phẩm theo từng vai trò.'],
 ];
 
-const studioReasons = [
-  ['Hình ảnh chuyên nghiệp', 'Giáo viên, lễ tân và tư vấn viên xuất hiện đồng bộ tại lớp học, quầy lễ tân, workshop và social media.'],
-  ['Trải nghiệm hội viên', 'Áo workshop, áo retreat hoặc sản phẩm theo khóa học giúp hội viên cảm thấy thuộc về cộng đồng studio.'],
-  ['Phân vai rõ ràng', 'Mỗi nhóm người mặc có form và chất liệu riêng nhưng vẫn giữ chung màu, logo và tinh thần thương hiệu.'],
-  ['Nội dung truyền thông đẹp hơn', 'Đồng phục giúp ảnh lớp học, video hướng dẫn, bài giới thiệu HLV và Google Business Profile nhất quán hơn.'],
-  ['Giá trị cảm nhận cao hơn', 'Khi đội ngũ mặc đúng trang phục vận động, khách hàng dễ cảm nhận sự đầu tư của studio vào dịch vụ.'],
-];
 
-const roleSolutions = [
-  {
-    title: 'HLV Yoga',
-    text: 'Cần trang phục mềm, mịn, co giãn và ổn định khi gập, xoắn, kéo giãn hoặc đảo ngược. Áo không nên cuộn khi nâng tay, legging không nên tụt cạp hoặc mỏng tại vùng chịu lực.',
-  },
-  {
-    title: 'HLV Pilates',
-    text: 'Cần dáng mặc gọn để giáo viên thị phạm và quan sát vai, hông, cột sống, đầu gối của học viên. Với Reformer, nên tránh chi tiết cứng, dây dài hoặc khóa dễ cấn khi nằm trên máy.',
-  },
-  {
-    title: 'Lễ tân và tư vấn viên',
-    text: 'Không cần quá ôm hoặc quá thể thao. Nhóm này cần T-shirt hoặc Polo đứng dáng, dễ mặc nhiều giờ, giữ hình ảnh chỉn chu và dễ nhận diện trong không gian studio.',
-  },
-  {
-    title: 'Hội viên, workshop, retreat',
-    text: 'Có thể bắt đầu bằng áo workshop, áo cộng đồng hoặc áo retreat. Mục tiêu là tạo cảm giác thuộc về, dễ mặc và phù hợp nhiều vóc dáng.',
-  },
-  {
-    title: 'Wellness doanh nghiệp',
-    text: 'Nên ưu tiên áo T-shirt, Polo thể thao hoặc set nhẹ theo màu thương hiệu. Sản phẩm cần kín đáo, dễ mặc và không quá chuyên sâu để người mới tập tự tin tham gia.',
-  },
-];
 
 const painPoints = [
   ['Chọn theo mẫu đẹp', 'Một set lên hình tốt vẫn có thể thất bại nếu vải bí nóng, áo cuộn khi nâng tay hoặc legging tụt cạp.'],
@@ -114,17 +85,6 @@ const caseStudies = [
   ['Studio Yoga 5 HLV', 'Bắt đầu bằng một mẫu cho giáo viên và một mẫu T-shirt workshop cho học viên. Sau khi có phản hồi tốt, mở rộng sang retreat hoặc bộ sưu tập member.'],
   ['Pilates Studio 20 máy', 'Dùng croptop quai bản to, legging cạp cao cho giáo viên; Polo hoặc T-shirt cho lễ tân; áo workshop cho học viên mới. Mẫu nên được thử trực tiếp trên Reformer.'],
   ['Wellness Retreat', 'Chọn T-shirt retreat, áo khoác nhẹ, tank top hoặc set mềm cho giáo viên. Nếu có nhiều hoạt động, chia sản phẩm theo buổi tập, di chuyển và chụp ảnh cộng đồng.'],
-];
-
-const relatedLinks = [
-  ['Đồng phục Yoga Studio', '/bai-viet/dong-phuc-yoga-studio'],
-  ['Đồng phục Pilates', '/bai-viet/dong-phuc-pilates'],
-  ['May đồng phục Yoga', '/bai-viet/may-dong-phuc-yoga'],
-  ['Giải pháp 2S Uniform', '/giai-phap-2s'],
-  ['Vải Super Cool là gì', '/vai-super-cool-la-gi'],
-  ['Công nghệ UNI DRY', '/cong-nghe-uni-dry'],
-  ['Xưởng may đồng phục thể thao Univi', '/xuong-may-dong-phuc-univi'],
-  ['Đồng phục Fitness Center', '/dong-phuc-fitness-center'],
 ];
 
 export const yogaPilatesFaqs = [
@@ -223,10 +183,10 @@ export default function YogaPilatesUniviPage() {
     <div className="text-gray-800">
       <section className="bg-white pb-8">
         <p className="mb-2 text-sm font-semibold text-[#105d97]">UniFlow by Univi</p>
-        <h2 className="text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <p className="text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Đồng Phục Yoga Pilates Thiết Kế Theo Yêu Cầu Cho Studio Và Cộng Đồng Wellness
-        </h2>
-        <div className="mt-4 space-y-2s text-base leading-relaxed text-gray-700">
+        </p>
+        <div className="mt-4 space-y-2 text-base leading-relaxed text-gray-700">
           <p>
             Đừng chọn đồng phục Yoga Pilates chỉ vì đẹp. Một set đồ lên hình tốt vẫn có thể thất bại
             trong lớp học nếu vải bí nóng, legging tụt cạp, áo cuộn khi nâng tay hoặc dáng áo quá
@@ -263,22 +223,41 @@ export default function YogaPilatesUniviPage() {
         </div>
       </section>
 
-      <Section id="dong-phuc-yoga-pilates-la-gi" title="1. Đồng Phục Yoga Pilates Không Chỉ Là Trang Phục" className="border-t border-gray-100">
+      <Section id="dong-phuc-yoga-pilates-la-gi" title="1. Đồng Phục Yoga Pilates Theo Yêu Cầu Là Gì?" className="border-t border-gray-100">
         <div className="space-y-3 leading-relaxed">
           <p>
-            Đồng phục Yoga Pilates là bộ trang phục dành cho giáo viên, HLV, lễ tân, tư vấn viên,
-            hội viên, lớp workshop, retreat hoặc chương trình wellness cho doanh nghiệp. Bộ này có
-            thể gồm áo bra, legging, croptop, tank top, T-shirt, Polo thể thao, áo khoác nhẹ và sản
-            phẩm sự kiện.
+            Đồng phục Yoga Pilates theo yêu cầu là hệ trang phục được xây cho những người cùng xuất
+            hiện trong một studio: giáo viên, trợ giảng, lễ tân, tư vấn viên, quản lý, học viên và
+            cộng đồng tham gia workshop hoặc retreat. Hệ này có thể gồm sports bra, croptop, tank
+            top, T-shirt, legging, Polo thể thao và áo khoác nhẹ. Sản phẩm khác nhau, nhưng phải
+            dùng chung ngôn ngữ về màu, logo và tinh thần thương hiệu.
           </p>
           <p>
-            Đồ tập cá nhân chỉ cần phù hợp một người. Đồng phục studio phải phù hợp nhiều vóc dáng,
-            nhiều vai trò, nhiều tần suất sử dụng và vẫn giữ được hình ảnh thương hiệu thống nhất.
+            Đồ tập bán lẻ chỉ cần phù hợp với một cá nhân. Người mua tự chọn kiểu mình thích, đổi
+            sang mẫu khác khi cần và không phải lo đợt mua sau có giống đợt trước hay không.{' '}
+            <InlineLink href="/bai-viet/dong-phuc-yoga-studio">Đồng phục Yoga Studio</InlineLink>{' '}
+            phải giải một bài toán rộng hơn: phù hợp nhiều vóc dáng, đúng vai trò, chịu được tần
+            suất sử dụng, lên hình đồng bộ và có hồ sơ để đặt bổ sung.
           </p>
           <p>
-            Vì vậy, <InlineLink href="/bai-viet/dong-phuc-yoga-studio">đồng phục Yoga Studio</InlineLink>{' '}
-            không nên bắt đầu từ câu hỏi màu nào đẹp, mà nên bắt đầu từ người mặc vận động như thế
-            nào, cần cảm giác gì trên da và studio muốn tạo trải nghiệm ra sao.
+            Trong trải nghiệm hội viên, đồng phục là tín hiệu thị giác xuất hiện trước cả khi lớp
+            bắt đầu. Khách mới cần nhận ra ai là giáo viên, ai có thể hỗ trợ tại quầy và đâu là
+            thành viên của cộng đồng. Khi đội ngũ mặc cùng hệ nhận diện, không gian studio có cảm
+            giác được tổ chức rõ hơn. Điều này không chứng minh chất lượng chuyên môn, nhưng giúp
+            thương hiệu truyền đạt sự nhất quán ngay từ điểm chạm đầu tiên.
+          </p>
+          <p>
+            Với Yoga, trang phục cần theo các chuyển động gập, xoắn, kéo giãn, giữ thăng bằng và
+            đảo ngược. Sản phẩm phải mềm, ổn định và đủ kín để người mặc tập trung vào hơi thở. Với
+            Pilates, đặc biệt Reformer, form cần gọn hơn để giáo viên quan sát vai, hông, cột sống
+            và đầu gối; đồng thời tránh dây, khóa hoặc vạt thừa gây cấn khi tiếp xúc thiết bị.
+          </p>
+          <p>
+            Vì vậy, &ldquo;đồng bộ&rdquo; không có nghĩa mọi người mặc một set giống hệt nhau. Cách
+            phù hợp là giữ chung bảng màu, logo và nguyên tắc thiết kế, rồi thay đổi kiểu sản phẩm
+            theo công việc. Giáo viên dùng set co giãn sát cơ thể; lễ tân dùng T-shirt hoặc Polo
+            chỉn chu; hội viên có áo cộng đồng dễ chọn size. Đó là điểm phân biệt một đơn hàng quần
+            áo với một hệ đồng phục vận hành.
           </p>
         </div>
         <div className="mt-6">
@@ -318,40 +297,137 @@ export default function YogaPilatesUniviPage() {
       </Section>
 
       <Section id="vi-sao-studio-can-dong-phuc" title="3. Vì Sao Yoga Studio Và Pilates Studio Cần Đồng Phục Riêng?">
-        <p className="mb-4 leading-relaxed">
-          Khi studio muốn tăng nhận diện, mở thêm cơ sở hoặc xây cộng đồng hội viên, trang phục rời
-          rạc bắt đầu tạo ra khoảng trống thương hiệu. Đồng phục giúp biến hình ảnh đội ngũ từ mỗi
-          người một phong cách thành một hệ nhận diện thống nhất hơn.
+        <p className="mb-6 leading-relaxed">
+          Một hệ đồng phục riêng tạo giá trị khi nó được mặc thường xuyên, hỗ trợ đúng công việc
+          và giúp studio giữ hình ảnh nhất quán. Nếu chỉ đặt logo lên một mẫu có sẵn mà không khảo
+          sát vai trò, studio dễ gặp tình trạng nhân sự không muốn mặc, đổi size nhiều, sản phẩm
+          khó phối hoặc đợt bổ sung khác màu đợt đầu.
         </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          {studioReasons.map(([title, text]) => (
-            <TextCard key={title} title={title}>
-              <p>{text}</p>
-            </TextCard>
-          ))}
-        </div>
-        <p className="mt-5 text-sm leading-relaxed text-gray-600">
-          Nếu studio muốn tách đồng phục đội ngũ và đồng phục hội viên, có thể tham khảo{' '}
-          <InlineLink href="/giai-phap-2s">giải pháp 2S Uniform</InlineLink>
-          .
-        </p>
-      </Section>
-
-      <Section id="giai-phap-theo-vai-tro" title="4. Giải Pháp Đồng Phục Theo Từng Vai Trò Trong Studio">
-        <p className="mb-4 leading-relaxed">
-          Sai lầm phổ biến là chọn một mẫu cho tất cả. Univi thường tư vấn theo cách giữ chung màu
-          sắc và logo, nhưng không ép mọi vị trí mặc giống hệt nhau.
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          {roleSolutions.map((item) => (
-            <TextCard key={item.title} title={item.title}>
-              <p>{item.text}</p>
-            </TextCard>
-          ))}
+        <div className="space-y-5">
+          <TextCard title="3.1 Tăng Nhận Diện Thương Hiệu">
+            <p>
+              Màu sắc, logo và form lặp lại trên giáo viên, quầy lễ tân, ảnh lớp học và video tạo
+              thành một mã nhận diện. Thương hiệu không còn chỉ nằm trên biển hiệu — nó xuất hiện
+              trong từng tương tác giữa đội ngũ với hội viên. Logo không cần quá lớn; sự nhất quán
+              mới là yếu tố làm người xem ghi nhớ.
+            </p>
+          </TextCard>
+          <TextCard title="3.2 Tạo Hình Ảnh Rõ Ràng Cho Đội Ngũ">
+            <p>
+              Đồng phục giúp khách mới nhận biết người hướng dẫn và người hỗ trợ. Giáo viên cũng
+              có hình ảnh gọn gàng khi thị phạm, quay video hoặc xuất hiện trong khóa đào tạo. Với{' '}
+              <InlineLink href="/bai-viet/dong-phuc-yoga-studio">đồng phục HLV Yoga</InlineLink>,
+              form ổn định còn giúp hạn chế việc phải kéo áo, chỉnh cạp quần giữa lớp — một chi
+              tiết nhỏ nhưng ảnh hưởng trực tiếp đến cảm nhận của học viên.
+            </p>
+          </TextCard>
+          <TextCard title="3.3 Đồng Bộ Website Và Mạng Xã Hội">
+            <p>
+              Studio thường cần ảnh giáo viên, video bài tập, nội dung lớp mới và tư liệu sự kiện.
+              Nếu mỗi người mặc một hệ màu khác nhau, feed social và website dễ rời rạc. Đồng phục
+              tạo nền thị giác thống nhất để một buổi chụp có thể sinh ra nhiều tài sản nội dung mà
+              không phải dựng lại concept từ đầu.
+            </p>
+          </TextCard>
+          <TextCard title="3.4 Hỗ Trợ Mở Rộng Nhiều Cơ Sở">
+            <p>
+              Khi mở cơ sở, tuyển giáo viên hoặc bổ sung lễ tân, studio cần cấp phát đúng sản phẩm
+              mà không thiết kế lại. Bộ chuẩn gồm file logo, mã màu, mã vải, bảng size và mẫu duyệt
+              giúp cơ sở mới giữ cùng trải nghiệm hình ảnh.{' '}
+              <InlineLink href="/giai-phap-2s">Giải pháp 2S Uniform</InlineLink> của Univi tách rõ
+              Staff Uniform cho nhân sự và Student/Member Uniform cho học viên để việc mở rộng dễ
+              quản lý hơn.
+            </p>
+          </TextCard>
+          <TextCard title="3.5 Tăng Trải Nghiệm Hội Viên">
+            <p>
+              Áo workshop, áo khóa đào tạo hoặc set member có thể tạo cảm giác thuộc về cộng đồng.
+              Tuy nhiên, trải nghiệm chỉ tốt khi sản phẩm dễ mặc, có nhiều mức che phủ và không ép
+              mọi vóc dáng vào cùng một form. Hệ đồng phục nên cho hội viên lựa chọn, không biến
+              đồng nhất thành áp lực.
+            </p>
+          </TextCard>
         </div>
         <div className="mt-6">
           <ImageBlock
             src="/images/dong-phuc-yoga-pilates.jpg"
+            alt="Hệ đồng phục Yoga Pilates Studio đồng bộ theo vai trò"
+            caption="Đồng phục tạo giá trị khi được mặc thường xuyên, hỗ trợ đúng công việc và giữ hình ảnh studio nhất quán."
+          />
+        </div>
+      </Section>
+
+      <Section id="giai-phap-theo-vai-tro" title="4. Giải Pháp Đồng Phục Theo Từng Vai Trò Trong Studio">
+        <p className="mb-6 leading-relaxed">
+          Trước khi chọn mẫu, studio nên lập bản đồ người mặc. Với từng nhóm, hãy ghi rõ công việc,
+          mức vận động, thời gian sử dụng, mức che phủ và mục tiêu nhận diện. Cách làm này ngăn sai
+          lầm phổ biến: dùng một loại vải và một kiểu áo cho tất cả.
+        </p>
+        <div className="space-y-5">
+          <TextCard title="4.1 Đồng Phục HLV Yoga">
+            <p>
+              Giáo viên Yoga cần thị phạm các tư thế gập, xoắn, kéo giãn và đảo ngược. Legging cạp
+              cao, sports bra nâng đỡ vừa, croptop quai bản to, tank top hoặc T-shirt ôm vừa là những
+              lựa chọn thực tế. Sản phẩm cần ổn định khi nâng tay, không cuộn áo, không tụt cạp và
+              đủ kín khi kéo giãn.
+            </p>
+          </TextCard>
+          <TextCard title="4.2 Đồng Phục HLV Pilates">
+            <p>
+              Giáo viên Pilates cần để học viên nhìn rõ đường căn chỉnh, đồng thời phải thoải mái khi
+              làm việc trên Mat hoặc Reformer. Form nên ôm vừa, ít chi tiết cứng, không có dây dài
+              hoặc khóa nổi tại vùng tiếp xúc với máy. Studio có thể đọc thêm hướng dẫn chuyên sâu
+              về{' '}
+              <InlineLink href="/bai-viet/dong-phuc-pilates">đồng phục Pilates</InlineLink> trước khi
+              chốt cấu hình.
+            </p>
+          </TextCard>
+          <TextCard title="4.3 Đồng Phục Lễ Tân Và Tư Vấn Viên">
+            <p>
+              Nhóm này là điểm chạm đầu tiên nhưng không cần mặc set tập sát da trong cả ca. Polo
+              thể thao, T-shirt form đứng hoặc áo khoác nhẹ dễ bảo quản thường phù hợp hơn. Màu và
+              logo nên liên kết với đội giáo viên; kiểu cổ hoặc đường phối có thể khác để thể hiện
+              vai trò.
+            </p>
+          </TextCard>
+          <TextCard title="4.4 Đồng Phục Hội Viên">
+            <p>
+              Hội viên có vóc dáng và mức tự tin khác nhau. T-shirt hoặc tank top là điểm bắt đầu dễ
+              triển khai hơn bra và legging vì ít rào cản size. Khi đã có dữ liệu phản hồi, studio
+              mới mở rộng sang set tập. Đây cũng là phần Member Uniform có thể phát triển thành
+              merchandise nếu sản phẩm đủ dễ mặc ngoài lớp.
+            </p>
+          </TextCard>
+          <TextCard title="4.5 Đồng Phục Workshop">
+            <p>
+              Workshop cần sản phẩm dễ chọn size, nhận diện rõ và phù hợp thời gian sử dụng ngắn
+              hoặc theo chủ đề. T-shirt co giãn, tank top hoặc áo khoác nhẹ thường thực dụng. Ngày
+              tổ chức, tên chương trình và logo nhà tài trợ chỉ nên đưa vào khi studio chấp nhận sản
+              phẩm khó dùng lại cho sự kiện khác.
+            </p>
+          </TextCard>
+          <TextCard title="4.6 Đồng Phục Retreat">
+            <p>
+              Retreat có thể diễn ra trong nhà lẫn ngoài trời, nên brief phải ghi rõ khí hậu, lịch
+              hoạt động và mức vận động. Tính năng chống UV hoặc nhanh khô chỉ nên cam kết theo đúng
+              mã vải. Ngoài set tập, studio có thể cần áo khoác nhẹ hoặc T-shirt cộng đồng để di
+              chuyển và sinh hoạt chung.
+            </p>
+          </TextCard>
+          <TextCard title="4.7 Đồng Phục Sự Kiện Và Cộng Đồng">
+            <p>
+              Ngày khai trương, lớp ngoài trời, hoạt động thiện nguyện hoặc chương trình wellness cần
+              hình ảnh tập thể dễ nhận ra. Áo sự kiện nên ưu tiên dải size rộng, logo đọc tốt và khả
+              năng cấp phát nhanh. Khi mô hình có thêm Gym hoặc hoạt động sân đấu, studio có thể tham
+              khảo{' '}
+              <InlineLink href="/dong-phuc-gym">hệ đồng phục Gym</InlineLink> để tách đúng công năng
+              thay vì dùng đồ Yoga cho mọi bộ môn.
+            </p>
+          </TextCard>
+        </div>
+        <div className="mt-6">
+          <ImageBlock
+            src="https://live.staticflickr.com/65535/55373505125_49f448bfa5_b.jpg"
             alt="Đồng phục theo vai trò trong Yoga Pilates Studio"
             caption="Mỗi vai trò trong studio cần tiêu chí riêng về chất liệu, dáng mặc và mức độ nhận diện."
           />
@@ -550,17 +626,49 @@ export default function YogaPilatesUniviPage() {
         </div>
       </Section>
 
-      <Section id="internal-link-hub" title="12. Bài Viết Liên Quan">
-        <div className="grid gap-3 md:grid-cols-2">
-          {relatedLinks.map(([label, href]) => (
-            <Link
-              key={href}
-              href={href}
-              className="rounded-lg border border-gray-100 bg-gray-50 p-4 font-semibold text-[#105d97] transition hover:border-[#105d97] hover:bg-white"
-            >
-              {label}
-            </Link>
-          ))}
+
+      <Section id="dong-phuc-yoga-toan-quoc" title="12. Đồng Phục Yoga Pilates Theo Yêu Cầu Tại Hà Nội, TP.HCM Và Toàn Quốc">
+        <div className="space-y-4 leading-relaxed">
+          <p>
+            Nhu cầu may đồng phục Yoga và Pilates đang tăng nhanh tại các thành phố lớn, nơi các mô
+            hình Yoga Studio, Pilates Reformer và Wellness Center phát triển mạnh trong những năm gần
+            đây.
+          </p>
+          <p>
+            Tại <strong>Hà Nội</strong>, nhiều studio ưu tiên các dòng đồng phục Yoga mềm mại, co
+            giãn và có khả năng thoát ẩm tốt để phù hợp với lịch dạy dày đặc của đội ngũ huấn luyện
+            viên. Đồng phục Yoga Hà Nội thường tập trung vào sự cân bằng giữa hình ảnh thương hiệu
+            và trải nghiệm mặc thực tế.
+          </p>
+          <p>
+            Tại <strong>TP.HCM</strong>, các mô hình Boutique Studio và Wellness Center thường ưu
+            tiên những thiết kế hiện đại, trẻ trung và tối ưu khả năng thoáng khí trong điều kiện
+            thời tiết nóng ẩm quanh năm. Đồng phục Yoga TP.HCM vì vậy thường có yêu cầu cao hơn về
+            độ nhẹ, khả năng khô nhanh và sự thoải mái khi mặc liên tục nhiều giờ.
+          </p>
+          <p>
+            Với các mô hình Pilates Reformer tại <strong>Hà Nội</strong> và các thành phố lớn, đồng
+            phục Pilates thường được tối ưu theo hướng gọn gàng, ổn định form và hỗ trợ giáo viên
+            quan sát chuyển động của học viên trong quá trình căn chỉnh kỹ thuật.
+          </p>
+          <p>
+            Tại <strong>Đà Nẵng</strong>, nhu cầu đồng phục Wellness cho resort, retreat và các
+            chương trình chăm sóc sức khỏe ngày càng tăng. Những dự án này thường ưu tiên chất liệu
+            mềm mại, dễ chịu và hình ảnh thư giãn phù hợp với trải nghiệm nghỉ dưỡng.
+          </p>
+          <p>
+            Với hệ thống sản xuất tại Hà Nội và khả năng giao hàng toàn quốc,{' '}
+            <InlineLink href="/gioi-thieu">Univi</InlineLink> hiện hỗ trợ triển khai đồng phục Yoga,
+            đồng phục Pilates và đồng phục Wellness cho studio, trung tâm thể thao và doanh nghiệp
+            tại nhiều tỉnh thành trên cả nước.
+          </p>
+        </div>
+        <div className="mt-6">
+          <ImageBlock
+            src="https://live.staticflickr.com/65535/55372002776_438dbcb628_b.jpg"
+            alt="Đồng phục Yoga Pilates tại Hà Nội, TP.HCM và toàn quốc"
+            caption="Univi hỗ trợ triển khai đồng phục Yoga, Pilates và Wellness cho studio và doanh nghiệp trên toàn quốc."
+          />
         </div>
       </Section>
 
@@ -585,7 +693,7 @@ export default function YogaPilatesUniviPage() {
         </div>
         <div className="mt-6">
           <ImageBlock
-            src="/images/yoga-1.jpg"
+            src="https://live.staticflickr.com/65535/55373233833_a455fac31d_b.jpg"
             alt="Đồng phục Yoga Pilates theo yêu cầu tại Univi"
             caption="Univi phát triển đồng phục Yoga Pilates theo nguyên tắc đúng chất liệu, đúng vai trò, đúng chuyển động và đúng nhận diện thương hiệu."
           />

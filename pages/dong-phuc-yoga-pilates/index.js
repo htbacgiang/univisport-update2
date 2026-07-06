@@ -6,7 +6,7 @@ import { getCategoryArticleSetting } from '../../lib/categoryArticleSettings';
 const SLUG = 'dong-phuc-yoga-pilates';
 const META_TITLE = 'May Đồng Phục Yoga Pilates Theo Yêu Cầu Cho Studio & Wellness Center | Univi';
 const META_DESCRIPTION =
-  'UNIVI tiên phong cung cấp giải pháp đồng phục Yoga Pilates theo yêu cầu cho Studio, Wellness Center và HLV Yoga. Thiết kế miễn phí, xưởng 2.000m2 tại Hà Nội, giao hàng toàn quốc.';
+  'Đồng phục Univi tiên phong cung cấp giải pháp đồng phục Yoga Pilates theo yêu cầu cho Studio, Wellness Center và HLV Yoga. Thiết kế miễn phí, xưởng 2.000m2 tại Hà Nội, giao hàng toàn quốc.';
 const META_KEYWORDS =
   'đồng phục Yoga Pilates, đồng phục Yoga Studio, đồng phục Pilates Studio, đồng phục giáo viên Yoga, đồng phục giáo viên Pilates, đồng phục HLV Yoga, đồng phục Wellness Center, may đồng phục Yoga, vải Super Cool, công nghệ UNI DRY, giải pháp 2S Uniform, áo bra Yoga đồng phục, legging Yoga đồng phục';
 const OG_IMAGE = 'https://dongphucunivi.com/images/banner-yoga.jpg';
