@@ -99,7 +99,7 @@ export default function ProductQuickViewModal({ slug, onClose }) {
         ) : (
           <div className="flex flex-col md:flex-row">
             {/* Image Section */}
-            <div className="w-full md:w-1/2 p-4 md:p-6">
+            <div className="w-full md:w-1/2 p-3 md:p-6">
               <Swiper
                 modules={[Navigation, Thumbs]}
                 spaceBetween={10}
@@ -163,7 +163,7 @@ export default function ProductQuickViewModal({ slug, onClose }) {
             </div>
 
             {/* Product Info Section */}
-            <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col">
+            <div className="w-full md:w-1/2 p-3 md:p-6 flex flex-col">
               {/* Price */}
               <span className="text-sm text-gray-400 font-normal mb-0.5">Giá tham khảo</span>
               <div className="flex items-baseline gap-2 flex-wrap mb-1">
@@ -185,7 +185,7 @@ export default function ProductQuickViewModal({ slug, onClose }) {
 
               {/* Colors */}
               {product.colors?.length > 0 && (
-                <div className="mb-4">
+                <div className="mb-3 md:mb-4">
                   <p className="text-sm text-gray-700 mb-2">
                     Màu sắc: <span className="font-medium">{product.colors[selectedColorIndex]?.name}</span>
                   </p>
@@ -200,7 +200,7 @@ export default function ProductQuickViewModal({ slug, onClose }) {
                           onClick={() => handleColorSelect(idx)}
                           aria-label={`Chọn màu ${color.name}`}
                           title={isSplit ? `${hex1} / ${hex2}` : hex1}
-                          className={`md:w-9 w-7 h-7 md:h-9 rounded-full border-2 transition-all overflow-hidden ${selectedColorIndex === idx ? 'border-[#f5a623] ring-2 ring-[#f5a623]/30 scale-110' : 'border-gray-300 hover:border-gray-400'}`}
+                          className={`md:w-9 w-6 h-6 md:h-9 rounded-full border-2 transition-all overflow-hidden ${selectedColorIndex === idx ? 'border-[#f5a623] ring-2 ring-[#f5a623]/30 scale-110' : 'border-gray-300 hover:border-gray-400'}`}
                           style={{
                             background: isSplit
                               ? `linear-gradient(90deg, ${hex1} 50%, ${hex2} 50%)`
@@ -214,7 +214,7 @@ export default function ProductQuickViewModal({ slug, onClose }) {
               )}
 
               {/* Liên hệ đặt hàng */}
-              <div className="mb-4">
+              <div className="mb-3 md:mb-4">
                 <button
                   onClick={() => setContactOpen(true)}
                   className="w-full flex items-center justify-center gap-2 bg-[#f5a623] hover:bg-[#e09510] text-white font-semibold py-2.5 px-5 rounded-full transition-colors"
@@ -228,13 +228,13 @@ export default function ProductQuickViewModal({ slug, onClose }) {
 
               {/* View full page link */}
               <Link href={`/san-pham/${slug}`} onClick={onClose}
-                className="text-center text-sm text-[#105d97] hover:underline mb-4"
+                className="text-center text-sm text-[#105d97] hover:underline mb-3 md:mb-4"
               >
                 Xem trang chi tiết sản phẩm →
               </Link>
 
               {/* Cam kết */}
-              <div className="grid grid-cols-2 gap-2 mt-auto">
+              <div className=" grid-cols-2 gap-2 mt-auto hidden md:grid">
                 <div className="border border-gray-200 rounded-xl p-3 flex items-start gap-2">
                   <svg className="w-7 h-7 text-gray-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />

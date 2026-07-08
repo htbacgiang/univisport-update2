@@ -66,6 +66,7 @@ const NAV_GROUPS = [
       { title: "Sections trang chủ", icon: LayoutTemplate, href: "/dashboard/homepage-sections" },
       { title: "FAQ trang chủ", icon: CircleHelp, href: "/dashboard/faq" },
       { title: "Logo đối tác", icon: Handshake, href: "/dashboard/partner-logos" },
+      { title: "Banner sidebar", icon: LayoutTemplate, href: "/dashboard/sidebar-banners" },
     ],
   },
   {

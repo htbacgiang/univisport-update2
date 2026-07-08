@@ -434,7 +434,7 @@ function MyApp({ Component, pageProps: { session, meta, ...pageProps } }) {
           />
         )}
       </Head>
-      <SessionProvider session={session}>
+      <SessionProvider session={session} refetchOnWindowFocus={false}>
         <Provider store={store}>
           {/*
             appContent dùng chung cho cả loading và children của PersistGate.

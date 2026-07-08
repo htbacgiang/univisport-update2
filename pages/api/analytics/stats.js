@@ -1,11 +1,12 @@
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]";
 import db from "../../../utils/db";
 import PageView from "../../../models/PageView";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") return res.status(405).end();
 
-  const session = await getSession({ req });
+  const session = await getServerSession(req, res, authOptions);
   if (!session || session.user?.role !== "admin") {
     return res.status(401).json({ error: "Unauthorized" });
   }

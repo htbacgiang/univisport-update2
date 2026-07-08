@@ -110,7 +110,7 @@ const ProductCard = ({ id, name, description, price, maxPrice, discount, isNew, 
 
           {/* Color Options */}
           <div className="flex md:gap-2 gap-1">
-            {allImages.length > 0 && allImages.slice(0, 5).map((color, index) => {
+            {allImages.length > 0 && allImages.slice(0, 8).map((color, index) => {
               const hex1 = color.hex || '#cccccc';
               const hex2 = color.hex2 || hex1;
               const isSplit = hex2 !== hex1;
@@ -122,9 +122,10 @@ const ProductCard = ({ id, name, description, price, maxPrice, discount, isNew, 
                     e.preventDefault();
                     handleColorChange(index);
                   }}
-                  className={`w-[24px] h-[24px] md:w-[26px] md:h-[26px] rounded-full p-[2px] transition-all duration-300 border overflow-hidden ${selectedColorIdx === index
-                    ? 'border-[#f2b94c]'
-                    : 'border-gray-200 hover:border-gray-300'
+                  className={`w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-full p-[1px] md:p-[2px] transition-all duration-300 border overflow-hidden ${index >= 6 ? 'hidden md:block' : ''
+                    } ${selectedColorIdx === index
+                      ? 'border-[#f2b94c]'
+                      : 'border-gray-200 hover:border-gray-300'
                     }`}
                   title={color.name}
                   aria-label={`Chọn màu ${color.name}`}

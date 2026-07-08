@@ -1,5 +1,4 @@
 import NextAuth from "next-auth";
-import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
@@ -7,9 +6,6 @@ import bcrypt from "bcrypt";
 import User from "../../../models/User";
 import clientPromise from "./lib/mongodb";
 import db from "../../../utils/db";
-
-// Kết nối database an toàn
-db.connectDb().catch((error) => console.error("MongoDB connection error:", error));
 
 export const authOptions = {
   adapter: MongoDBAdapter(clientPromise),
@@ -22,6 +18,7 @@ export const authOptions = {
       },
       async authorize(credentials) {
         try {
+          await db.connectDb();
           if (!credentials.email || !credentials.password) {
             throw new Error("Email and password are required.");
           }
@@ -43,10 +40,6 @@ export const authOptions = {
         }
       },
     }),
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-    }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
@@ -64,24 +57,18 @@ export const authOptions = {
       try {
         // Chỉ tìm user nếu có token và token.sub hợp lệ (user đã đăng nhập)
         if (!token || !token.sub) {
-          // Người dùng chưa đăng nhập, return session rỗng (cho phép truy cập public)
           return session;
         }
-        
+        await db.connectDb();
         const user = await User.findById(token.sub);
         if (!user) {
-          // User không tồn tại nhưng có token, có thể token đã hết hạn hoặc user đã bị xóa
-          // Không throw error, chỉ return session cơ bản
           return session;
         }
-        
-        // Cập nhật session với thông tin user
         session.user.id = token.sub || user._id.toString();
         session.user.name = user.name;
         session.user.role = user.role || "user";
         session.user.emailVerified = user.emailVerified || false;
         session.user.image = user.image;
-        // Lấy các trường cá nhân trực tiếp từ userSchema
         session.user.gender = user.gender;
         session.user.dateOfBirth = user.dateOfBirth;
         session.user.phone = user.phone;
@@ -89,7 +76,6 @@ export const authOptions = {
         return session;
       } catch (error) {
         console.error("Session callback error:", error);
-        // Không throw error, return session để không block public access
         return session;
       }
     },
@@ -104,33 +90,4 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET || process.env.JWT_SECRET,
 };
 
-const nextAuthHandler = NextAuth(authOptions);
-
-export default async function authHandler(req, res) {
-  if (!req.query) req.query = {};
-  if (!req.query.nextauth) {
-    try {
-      const url = new URL(req.url, "http://localhost");
-      const parts = url.pathname
-        .replace(/^\/api\/auth\/?/, "")
-        .split("/")
-        .filter(Boolean);
-      req.query.nextauth = parts;
-    } catch (e) {
-      console.error("Failed to parse NextAuth path from URL:", e);
-    }
-  }
-  return nextAuthHandler(req, res);
-}
-
-
-const signInUser = async ({ password, user }) => {
-  if (!user.password) {
-    throw new Error("Vui lòng nhập mật khẩu");
-  }
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    throw new Error("Email hoặc mật khẩu không đúng");
-  }
-  return user;
-};
+export default NextAuth(authOptions);

@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import DefaultLayout2 from "../components/layout/DefaultLayout2";
@@ -105,6 +106,8 @@ export default function Home({
           </div>
         ) : null
       )}
+
+      <VideoSection />
       <HeroSection1 />
       <FabricCardComponent />
       <FeedbackSection initialFeedbacks={initialFeedbacks} />
@@ -137,6 +140,171 @@ export default function Home({
 
       <CTABannerSection />
     </DefaultLayout2>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// VIDEO SECTION
+// ─────────────────────────────────────────────────────────────
+function VideoSection() {
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  // IntersectionObserver: tự phát + bật tiếng khi scroll vào view
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          video.play().catch(() => {
+            // Trường hợp browser chặn: fallback muted
+            video.muted = true;
+            video.play().catch(() => { });
+          });
+          setPlaying(true);
+          setMuted(false);
+        } else {
+          video.pause();
+          setPlaying(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying(true);
+    } else {
+      video.pause();
+      setPlaying(false);
+    }
+    setHasInteracted(true);
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+    setHasInteracted(true);
+  };
+
+  return (
+    <div className="container mx-auto mt-6 mb-2 px-4" style={{ position: "relative" }}>
+      <div style={{ position: "relative", borderRadius: "8px", overflow: "hidden" }}>
+        <video
+          ref={videoRef}
+          src="/video-univi-2.mp4"
+          muted
+          loop
+          playsInline
+          style={{ width: "100%", display: "block" }}
+        />
+
+        {/* Controls overlay */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            padding: "12px 16px",
+            background: "linear-gradient(transparent, rgba(0,0,0,0.55))",
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
+          {/* Play / Pause */}
+          <button
+            onClick={togglePlay}
+            aria-label={playing ? "Tạm dừng" : "Phát"}
+            style={{
+              background: "rgba(255,255,255,0.2)",
+              border: "none",
+              borderRadius: "50%",
+              width: 40,
+              height: 40,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backdropFilter: "blur(4px)",
+              transition: "background 0.2s",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.35)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+          >
+            {playing ? (
+              // Pause icon
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                <rect x="5" y="3" width="4" height="18" rx="1" />
+                <rect x="15" y="3" width="4" height="18" rx="1" />
+              </svg>
+            ) : (
+              // Play icon
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            )}
+          </button>
+
+          {/* Mute / Unmute */}
+          <button
+            onClick={toggleMute}
+            aria-label={muted ? "Bật tiếng" : "Tắt tiếng"}
+            style={{
+              background: "rgba(255,255,255,0.2)",
+              border: "none",
+              borderRadius: "50%",
+              width: 40,
+              height: 40,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backdropFilter: "blur(4px)",
+              transition: "background 0.2s",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.35)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+          >
+            {muted ? (
+              // Muted icon
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+              </svg>
+            ) : (
+              // Sound icon
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+            )}
+          </button>
+
+          {/* Label */}
+          <span style={{ color: "rgba(255,255,255,0.75)", fontSize: "13px", marginLeft: "auto" }}>
+            {muted && !hasInteracted ? "🔇 Cuộn xuống → tự bật tiếng" : ""}
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -177,7 +345,7 @@ function SectionBanner({ banner }) {
   );
 
   return (
-    <div className="container mx-auto mb-2 mt-2">
+    <div className="container mx-auto mb-2 mt-6 ">
       {banner.link ? (
         <Link
           href={banner.link}

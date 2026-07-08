@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import type { NextAuthOptions } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
 import { getToken } from "next-auth/jwt";
 import TrackingSetting from "../../../models/TrackingSetting";
 import User from "../../../models/User";
@@ -85,7 +87,7 @@ async function getRequestRole(req: NextApiRequest) {
     return tokenRole;
   }
 
-  const session = await getSession({ req });
+  const session = await getServerSession(req as any, {} as any, authOptions as NextAuthOptions);
   const sessionRole = (session?.user as { role?: unknown } | undefined)?.role;
 
   if (typeof sessionRole === "string") {

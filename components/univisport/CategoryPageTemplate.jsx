@@ -3,7 +3,7 @@ import DefaultLayout2 from '../layout/DefaultLayout2';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp, SlidersHorizontal, X } from 'lucide-react';
+import { ChevronDown, SlidersHorizontal, X } from 'lucide-react';
 import BannerCarousel from './BannerCarousel';
 import parse from 'html-react-parser';
 import { normalizeInternalLinkAttributes } from '../../utils/internalLinks';
@@ -53,14 +53,6 @@ const CATEGORY_DESCRIPTION = {
 
 
 
-const PRICE_RANGES = [
-  { label: 'Tất cả', min: 0, max: Infinity },
-  { label: 'Dưới 100.000₫', min: 0, max: 100000 },
-  { label: '100.000₫ – 200.000₫', min: 100000, max: 200000 },
-  { label: '200.000₫ – 300.000₫', min: 200000, max: 300000 },
-  { label: 'Trên 300.000₫', min: 300000, max: Infinity },
-];
-
 export default function
   CategoryPageTemplate({ categorySlug, initialProducts, categoryCounts = {}, ArticleComponent, categoryArticle }) {
   const safeProducts = Array.isArray(initialProducts) ? initialProducts : [];
@@ -71,19 +63,9 @@ export default function
   const [products, setProducts] = useState(safeProducts);
   const [sortOption, setSortOption] = useState('default');
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(20);
-  const [priceRangeIdx, setPriceRangeIdx] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(16);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [showAllCats, setShowAllCats] = useState(false);
-
-  // Danh mục có sản phẩm luôn hiển thị; danh mục = 0 ẩn (trừ danh mục đang active)
-  const visibleCats = SIDEBAR_CATEGORIES.filter(
-    ([slug]) => (categoryCounts[slug] ?? 0) > 0 || slug === categorySlug
-  );
-  const hiddenCats = SIDEBAR_CATEGORIES.filter(
-    ([slug]) => (categoryCounts[slug] ?? 0) === 0 && slug !== categorySlug
-  );
-  const displayedCats = showAllCats ? SIDEBAR_CATEGORIES : visibleCats;
+  const displayedCats = SIDEBAR_CATEGORIES;
 
   useEffect(() => {
     if (isSidebarOpen) {
@@ -99,12 +81,8 @@ export default function
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const applyFilters = (sort, rangeIdx) => {
-    const range = PRICE_RANGES[rangeIdx];
-    let filtered = safeProducts.filter((p) => {
-      const price = p.maxPrice || p.price || 0;
-      return price >= range.min && price <= range.max;
-    });
+  const applyFilters = (sort) => {
+    let filtered = [...safeProducts];
     if (sort === 'price-asc') filtered.sort((a, b) => (a.maxPrice || a.price) - (b.maxPrice || b.price));
     else if (sort === 'price-desc') filtered.sort((a, b) => (b.maxPrice || b.price) - (a.maxPrice || a.price));
     else if (sort === 'oldest') filtered.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -116,12 +94,7 @@ export default function
   const handleSort = (e) => {
     const option = e.target.value;
     setSortOption(option);
-    applyFilters(option, priceRangeIdx);
-  };
-
-  const handlePriceRange = (idx) => {
-    setPriceRangeIdx(idx);
-    applyFilters(sortOption, idx);
+    applyFilters(option);
   };
 
   const totalItems = products.length;
@@ -351,47 +324,8 @@ export default function
                     );
                   })}
                 </ul>
-                {hiddenCats.length > 0 && (
-                  <button
-                    onClick={() => setShowAllCats((v) => !v)}
-                    className="mt-2 flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors"
-                  >
-                    {showAllCats ? (
-                      <><ChevronUp className="w-3.5 h-3.5" /> Rút gọn</>
-                    ) : (
-                      <><ChevronDown className="w-3.5 h-3.5" /> Xem thêm ({hiddenCats.length})</>
-                    )}
-                  </button>
-                )}
               </div>
 
-              {/* Lọc theo giá */}
-              <div>
-                <p className="font-bold text-gray-800 text-sm mb-3 uppercase tracking-wider">
-                  Lọc theo giá
-                </p>
-                <ul className="space-y-2">
-                  {PRICE_RANGES.map((range, idx) => (
-                    <li key={idx}>
-                      <label className="flex items-center gap-3 cursor-pointer group">
-                        <input
-                          type="radio"
-                          name="priceRangeMobile"
-                          checked={priceRangeIdx === idx}
-                          onChange={() => handlePriceRange(idx)}
-                          className="accent-blue-600 w-4 h-4 cursor-pointer"
-                        />
-                        <span className={`text-sm transition-colors ${priceRangeIdx === idx
-                          ? 'text-blue-700 font-semibold'
-                          : 'text-gray-600 group-hover:text-blue-600'
-                          }`}>
-                          {range.label}
-                        </span>
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
             {/* Apply button */}
@@ -435,46 +369,6 @@ export default function
                     </li>
                   );
                 })}
-              </ul>
-              {hiddenCats.length > 0 && (
-                <button
-                  onClick={() => setShowAllCats((v) => !v)}
-                  className="mt-2 flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors"
-                >
-                  {showAllCats ? (
-                    <><ChevronUp className="w-3.5 h-3.5" /> Rút gọn</>
-                  ) : (
-                    <><ChevronDown className="w-3.5 h-3.5" /> Xem thêm ({hiddenCats.length})</>
-                  )}
-                </button>
-              )}
-            </div>
-
-            {/* Lọc theo giá */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
-              <p className="font-bold text-gray-800 text-sm mb-4 uppercase tracking-wider">
-                Lọc theo giá
-              </p>
-              <ul className="space-y-2">
-                {PRICE_RANGES.map((range, idx) => (
-                  <li key={idx}>
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                      <input
-                        type="radio"
-                        name="priceRange"
-                        checked={priceRangeIdx === idx}
-                        onChange={() => handlePriceRange(idx)}
-                        className="accent-blue-600 w-4 h-4 cursor-pointer"
-                      />
-                      <span className={`text-sm transition-colors ${priceRangeIdx === idx
-                        ? 'text-blue-700 font-semibold'
-                        : 'text-gray-600 group-hover:text-blue-600'
-                        }`}>
-                        {range.label}
-                      </span>
-                    </label>
-                  </li>
-                ))}
               </ul>
             </div>
 

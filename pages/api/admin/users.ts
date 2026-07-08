@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import type { NextAuthOptions } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
 import db from "../../../utils/db";
 import User from "../../../models/User";
 
@@ -9,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const session = await getSession({ req });
+  const session = await getServerSession(req, res, authOptions as NextAuthOptions);
   if (!session || (session.user as any).role !== "admin") {
     return res.status(403).json({ message: "Forbidden" });
   }

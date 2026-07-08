@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps<Props, { slug: string }> = a
       let randomFeedbacks: any[] = [];
       try {
         const feedbacksRaw = await Feedback.aggregate([
-          { $sample: { size: 4 } },
+          { $sample: { size: 3 } },
           { $project: { _id: 1, title: 1, slug: 1, image: 1, customer: 1, category: 1 } }
         ]);
         randomFeedbacks = feedbacksRaw.map((fb: any) => ({

@@ -74,6 +74,8 @@ type Props = {
 const host = "https://dongphucunivi.com";
 
 const DirectPostView: React.FC<Props> = ({ post, randomFeedbacks = [] }) => {
+  const displayedFeedbacks = randomFeedbacks.slice(0, 3);
+
   if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -127,7 +129,7 @@ const DirectPostView: React.FC<Props> = ({ post, randomFeedbacks = [] }) => {
         let props: Record<string, any> = {};
         try {
           props = JSON.parse(domNode.attribs["data-props"] || "{}");
-        } catch (_) {}
+        } catch (_) { }
 
         return <Component {...props} />;
       }
@@ -263,14 +265,14 @@ const DirectPostView: React.FC<Props> = ({ post, randomFeedbacks = [] }) => {
               <SidebarCTAForm />
 
               {/* Khách hàng tiêu biểu / Feedbacks */}
-              {randomFeedbacks && randomFeedbacks.length > 0 && (
+              {displayedFeedbacks.length > 0 && (
                 <div className="sidebar-projects px-4 md:px-0 hidden md:block">
                   <p className="text-xl flex items-center font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">
                     Khách hàng tiêu biểu
                   </p>
                   <div className="flex flex-col gap-4 mt-2">
-                    {randomFeedbacks.map((fb, index) => (
-                      <Link key={fb.id} href={`/ho-so-nang-luc/${fb.slug}`} className="group block">
+                    {displayedFeedbacks.map((fb, index) => (
+                      <Link key={fb.id} href={`/feedback/${fb.slug}`} className="group block">
                         <div className="relative w-full aspect-[5/3] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-1 cursor-pointer">
                           <div className="absolute inset-0">
                             {fb.image ? (
