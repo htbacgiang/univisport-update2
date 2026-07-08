@@ -62,11 +62,12 @@ const FeedbackSection = ({ initialFeedbacks }) => {
     return () => window.removeEventListener("resize", updateItemsPerSlide);
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => prev + 1);
-  const prevSlide = () => setCurrentSlide((prev) => Math.max(0, prev - 1));
+  const maxSlide = Math.max(0, feedbacks.length - itemsPerSlide);
+  const nextSlide = () => setCurrentSlide((prev) => (prev >= maxSlide ? 0 : prev + 1));
+  const prevSlide = () => setCurrentSlide((prev) => (prev <= 0 ? maxSlide : prev - 1));
 
-  const isPrevDisabled = currentSlide === 0;
-  const isNextDisabled = currentSlide >= feedbacks.length - itemsPerSlide;
+  const isPrevDisabled = maxSlide === 0;
+  const isNextDisabled = maxSlide === 0;
   const itemWidthPercentage = itemsPerSlide === 1 ? 100 : itemsPerSlide === 2 ? 50 : 20;
 
   if (isLoading) {
@@ -159,19 +160,49 @@ const FeedbackSection = ({ initialFeedbacks }) => {
           </button>
 
           {/* Mobile Dots Indicator */}
-          {itemsPerSlide < 5 && (
-            <div className="flex justify-center space-x-2">
-              {Array.from({ length: Math.ceil(feedbacks.length / itemsPerSlide) }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${Math.floor(currentSlide / itemsPerSlide) === index
-                    ? 'bg-[#105d97] w-6'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  aria-label={`Đi đến slide ${index + 1}`}
-                />
-              ))}
+          {itemsPerSlide < 5 && feedbacks.length > itemsPerSlide && (
+            <div className="flex justify-center space-x-2 mt-4">
+              {(() => {
+                // If maxSlide is 1, we only need 2 dots. If >= 2, we use exactly 3 dots.
+                const dotCount = Math.min(3, maxSlide + 1);
+                
+                return Array.from({ length: dotCount }).map((_, index) => {
+                  let targetSlide = currentSlide;
+                  let isActive = false;
+
+                  if (dotCount < 3) {
+                    // Normal mapping when we don't have enough slides for 3 dots
+                    targetSlide = index * maxSlide;
+                    isActive = currentSlide === targetSlide;
+                  } else {
+                    // 3 dots with repeating/looping effect
+                    // Find the slide S in [0, maxSlide] where S % 3 === index, minimizing |S - currentSlide|
+                    let minDiff = Infinity;
+                    for (let s = 0; s <= maxSlide; s++) {
+                      if (s % 3 === index) {
+                        const diff = Math.abs(s - currentSlide);
+                        if (diff < minDiff) {
+                          minDiff = diff;
+                          targetSlide = s;
+                        }
+                      }
+                    }
+                    isActive = (currentSlide % 3) === index;
+                  }
+
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(targetSlide)}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${isActive
+                        ? 'bg-[#105d97] w-6'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                        }`}
+                      aria-label={`Đi đến slide ${index + 1}`}
+                    />
+                  );
+                });
+              })()}
             </div>
           )}
         </div>

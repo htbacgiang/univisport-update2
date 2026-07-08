@@ -116,7 +116,7 @@ export default function Banner() {
         </h1>
       </section>
       <section
-        className="banner-ttg relative overflow-hidden w-full"
+        className="banner-ttg relative overflow-hidden w-full mt-[70px]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >

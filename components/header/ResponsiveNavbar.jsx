@@ -59,22 +59,22 @@ const ResponsiveMenu = ({ isOpen, toggleMenu }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath]);
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden transition-opacity duration-500 opacity-100 pointer-events-auto"
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden transition-opacity duration-500 ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
         onClick={toggleMenu}
       />
 
       {/* Drawer */}
       <div
         id="mobile-primary-menu"
-        className="fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-white shadow-2xl border-r border-gray-200 z-[9999] transform transition-all duration-500 ease-out lg:hidden translate-x-0"
+        className={`fixed top-0 left-0 h-screen w-4/5 max-w-sm bg-white shadow-2xl border-r border-gray-200 z-[9999] transform transition-transform duration-500 ease-in-out lg:hidden ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
